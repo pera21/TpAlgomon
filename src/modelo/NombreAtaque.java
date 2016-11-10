@@ -13,9 +13,7 @@ public enum NombreAtaque {
 	private String nombre;
 	
 	private NombreAtaque(String nombreAtaque){
-		
 		this.nombre = nombreAtaque;
-		
 	}
 	
 	public String getNombre() {

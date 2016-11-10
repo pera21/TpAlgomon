@@ -1,14 +1,14 @@
 package modelo;
 
 public class TipoAlgomon {
-	
-	private String tipoAlgomon;
+	private String tipo;
 	
 	public TipoAlgomon(String tipo){
-		this.tipoAlgomon = tipo;
+		this.tipo = tipo;
 	}
 	
 	public String tipo(){
-		return this.tipoAlgomon;
+		return this.tipo;
 	}
+
 }

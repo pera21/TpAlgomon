@@ -1,7 +1,5 @@
 package modelo;
 
-import java.util.ArrayList;
-import modelo.Ataque;
 import java.util.EnumMap;
 
 public class Algomon implements Atacar {
@@ -19,34 +17,28 @@ public class Algomon implements Atacar {
 
 	@Override
 	public void atacar(Algomon oponente, NombreAtaque ataque) {
-		// buscar ataque en poderes y usar el de poderes
 		Poder ataqueAlgomon = poderes.get(ataque);
-		/*if(this.ataquesAgotados())
-			throw new AtaquesAgotados();*/
-		
+		oponente.vida.reducirVida(ataqueAlgomon.getTipoAtaque().danioPorTipo(oponente.getTipo()) * ataqueAlgomon.getPotencia());
 		try{
-			oponente.vida.reducirVida(ataqueAlgomon.getTipoAtaque().danioPorTipo(oponente.getTipo()) * ataqueAlgomon.getPotencia());
+			ataqueAlgomon.reducirCantidadAtaque();
+		} catch (AtaquesAgotados exception) {
+			exception.getMessage();
 		}
-		catch(AlgomonMuerto exception){
-			System.out.println("El algomon que intentas atacar esta muerto");
-		}
-		
-		ataqueAlgomon.reducirCantidadAtaque();
 		
 	}
 
+	public int vida(){
+		return this.vida.getVida();
+	}
 	
 	public TipoAlgomon getTipo(){
 		return this.tipo;
 	}
-	
-	private boolean ataquesAgotados() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-	
-	public int getVida(){
-		return this.vida.obtenerVida();
+
+	public int getAtaquesRestantes(NombreAtaque ataque){
+		Poder ataqueAlgomon = this.poderes.get(ataque);
+		return ataqueAlgomon.getCantidad();
+		
 	}
 
 }

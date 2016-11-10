@@ -9,16 +9,13 @@ public class Vida {
 		this.vidaRestante = original;
 	}
 	
-	public void reducirVida(double danio) throws AlgomonMuerto{
-		if(this.vidaRestante == 0)
-			throw new AlgomonMuerto();
+	public void reducirVida(double danio){
 		this.vidaRestante -= danio;
 		if(this.vidaRestante < 0)
 			this.vidaRestante = 0;
 	}
 	
-	public int obtenerVida(){
+	public int getVida(){
 		return this.vidaRestante;
 	}
-
 }
