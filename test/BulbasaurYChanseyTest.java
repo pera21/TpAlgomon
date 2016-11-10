@@ -1,3 +1,5 @@
+package tests;
+
 import static org.junit.Assert.*;
 
 import org.junit.Test;
@@ -16,11 +18,11 @@ public class BulbasaurYChanseyTest {
 		
 		bulbasaur.atacar(squirtle, NombreAtaque.LATIGO_CEPA);
 		
-		assertEquals(120,squirtle.getVida());
+		assertEquals(120,squirtle.vida());
 		
 		chansey.atacar(squirtle, NombreAtaque.LATIGO_CEPA);
 		
-		assertEquals(90,squirtle.getVida());
+		assertEquals(90,squirtle.vida());
 	}
 	
 	@Test
@@ -31,11 +33,11 @@ public class BulbasaurYChanseyTest {
 		
 		bulbasaur.atacar(charmander, NombreAtaque.LATIGO_CEPA);
 		
-		assertEquals(162,charmander.getVida());
+		assertEquals(162,charmander.vida());
 		
 		chansey.atacar(charmander, NombreAtaque.LATIGO_CEPA);
 		
-		assertEquals(154,charmander.getVida());
+		assertEquals(154,charmander.vida());
 	}
 	
 	@Test
@@ -46,11 +48,11 @@ public class BulbasaurYChanseyTest {
 		
 		bulbasaur.atacar(rattata, NombreAtaque.LATIGO_CEPA);
 		
-		assertEquals(155,rattata.getVida());
+		assertEquals(155,rattata.vida());
 		
 		chansey.atacar(rattata, NombreAtaque.LATIGO_CEPA);
 		
-		assertEquals(140,rattata.getVida());
+		assertEquals(140,rattata.vida());
 	}
 	
 	@Test
@@ -61,11 +63,11 @@ public class BulbasaurYChanseyTest {
 		
 		bulbasaur.atacar(jigglypuff, NombreAtaque.LATIGO_CEPA);
 		
-		assertEquals(115,jigglypuff.getVida());
+		assertEquals(115,jigglypuff.vida());
 		
 		chansey.atacar(jigglypuff, NombreAtaque.LATIGO_CEPA);
 		
-		assertEquals(100,jigglypuff.getVida());
+		assertEquals(100,jigglypuff.vida());
 	}
 	
 	@Test
@@ -76,11 +78,11 @@ public class BulbasaurYChanseyTest {
 		
 		bulbasaur.atacar(chansey2, NombreAtaque.LATIGO_CEPA);
 		
-		assertEquals(115,chansey2.getVida());
+		assertEquals(115,chansey2.vida());
 		
 		chansey.atacar(chansey2, NombreAtaque.LATIGO_CEPA);
 		
-		assertEquals(100,chansey2.getVida());
+		assertEquals(100,chansey2.vida());
 	}
 
 }

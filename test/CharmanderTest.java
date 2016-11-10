@@ -1,3 +1,5 @@
+package tests;
+
 import static org.junit.Assert.*;
 
 import org.junit.Test;
@@ -15,7 +17,7 @@ public class CharmanderTest {
 		
 		charmander.atacar(bulbasaur, NombreAtaque.BRASAS);
 		
-		assertEquals(108,bulbasaur.getVida());
+		assertEquals(108,bulbasaur.vida());
 	}
 	
 	@Test
@@ -25,7 +27,7 @@ public class CharmanderTest {
 		
 		charmander.atacar(squirtle, NombreAtaque.BRASAS);
 		
-		assertEquals(142,squirtle.getVida());
+		assertEquals(142,squirtle.vida());
 	}
 	
 	@Test
@@ -35,7 +37,7 @@ public class CharmanderTest {
 		
 		charmander.atacar(chansey, NombreAtaque.BRASAS);
 		
-		assertEquals(114,chansey.getVida());
+		assertEquals(114,chansey.vida());
 	}
 	
 	@Test
@@ -45,7 +47,7 @@ public class CharmanderTest {
 		
 		charmander.atacar(rattata, NombreAtaque.BRASAS);
 		
-		assertEquals(154,squirtle.getVida());
+		assertEquals(154,rattata.vida());
 	}
 	
 	@Test
@@ -55,7 +57,7 @@ public class CharmanderTest {
 		
 		charmander.atacar(jigglypuff, NombreAtaque.BRASAS);
 		
-		assertEquals(114,jigglypuff.getVida());
+		assertEquals(114,jigglypuff.vida());
 	}
 
 }
