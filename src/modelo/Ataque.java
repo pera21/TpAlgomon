@@ -2,53 +2,65 @@ package modelo;
 
 public enum Ataque {
 	ATAQUE_RAPIDO{
-		public Poder crear(){
-			Poder poder = new Poder(10, 16, TipoAtaque.NORMAL);
-			return poder;
+		public AtaqueSimple crear(){
+			AtaqueSimple ataque = new AtaqueSimple(10, 16, TipoAtaque.NORMAL);
+			return ataque;
 		}
 	},
 	CANTO{
-		public Poder crear(){
-			Poder poder = new Poder(0, 6, TipoAtaque.NORMAL);
-			return poder;
+		public AtaqueSimple crear(){
+			AtaqueSimple ataque = new AtaqueSimple(0, 6, TipoAtaque.NORMAL);
+			return ataque;
+			/*
+			 * AtaqueCanto canto = new AtaqueCanto(0, 6, TipoAtaque.NORMAL);
+			 * return canto;
+			 */
 		}
 	},
 	BURBUJA{
-		public Poder crear(){
-			Poder poder = new Poder(10, 15, TipoAtaque.AGUA);
-			return poder;
+		public AtaqueSimple crear(){
+			AtaqueSimple ataque = new AtaqueSimple(10, 15, TipoAtaque.AGUA);
+			return ataque;
 		}	
 	},
 	CANION_DE_AGUA{
-		public Poder crear(){
-			Poder poder = new Poder(20, 8, TipoAtaque.AGUA);
-			return poder;
+		public AtaqueSimple crear(){
+			AtaqueSimple ataque = new AtaqueSimple(20, 8, TipoAtaque.AGUA);
+			return ataque;
 		}	
 	},
 	CHUPAVIDAS{
-		public Poder crear(){
-			Poder poder = new Poder(15, 8, TipoAtaque.PLANTA);
-			return poder;
+		public AtaqueSimple crear(){
+			AtaqueSimple ataque = new AtaqueSimple(15, 8, TipoAtaque.PLANTA);
+			return ataque;
+			/*
+			 * Chupavidas chupavidas = new Chupavidas(15, 8, TipoAtaque.PLANTA);
+			 * return chupavidas;
+			 */
 		}	
 	},
 	LATIGO_CEPA{
-		public Poder crear(){
-			Poder poder = new Poder(15, 10, TipoAtaque.PLANTA);
-			return poder;
+		public AtaqueSimple crear(){
+			AtaqueSimple ataque = new AtaqueSimple(15, 10, TipoAtaque.PLANTA);
+			return ataque;
 		}	
 	},
 	BRASAS{
-		public Poder crear(){
-			Poder poder = new Poder(16, 10, TipoAtaque.FUEGO);
-			return poder;
+		public AtaqueSimple crear(){
+			AtaqueSimple ataque = new AtaqueSimple(16, 10, TipoAtaque.FUEGO);
+			return ataque;
 		}
 	},
 	FOGONAZO{
-		public Poder crear(){
-			Poder poder = new Poder(2, 4, TipoAtaque.FUEGO);
-			return poder;
+		public AtaqueSimple crear(){
+			AtaqueSimple ataque = new AtaqueSimple(2, 4, TipoAtaque.FUEGO);
+			return ataque;
+			/*
+			 * Fogonazo fogonazo = new Fogonazo(2, 4, TipoAtaque.FUEGO);
+			 * return fogonazo;
+			 */
 		}
 	};
 	
-	public abstract Poder crear();
+	public abstract AtaqueSimple crear();
 }

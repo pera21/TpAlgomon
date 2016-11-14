@@ -1,26 +1,20 @@
 package modelo;
 
-public interface Poder {
-	
-	public boolean ataquesAgotados();
-	public int getPotencia();
-	public void reducirCantidadAtaque() throws AtaquesAgotados;
-	public TipoAtaque getTipoAtaque();
-	public int getCantidad();
+public class AtaqueSimple implements Poder {
 
-/*	private int potencia;
+	private int potencia;
 	private int cantidadOriginal;
 	private int cantidadRestante;
 	private TipoAtaque ataque;
 	
-	public Poder(int potenciaAtaque, int cantidadAtaque, TipoAtaque ataque) {
+	public AtaqueSimple(int potenciaAtaque, int cantidadAtaque, TipoAtaque ataque) {
 		this.potencia = potenciaAtaque;
 		this.cantidadOriginal = cantidadAtaque;
 		this.cantidadRestante = cantidadAtaque;
 		this.ataque = ataque;
 	}
 	
-	private boolean ataquesAgotados(){
+	public boolean ataquesAgotados(){
 		return this.cantidadRestante == 0;
 	}
 	
@@ -43,5 +37,5 @@ public interface Poder {
 	public int getCantidad(){
 		return this.cantidadRestante;
 	}
-*/
+
 }
