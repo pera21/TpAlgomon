@@ -10,5 +10,11 @@ public class AtaqueCanto extends Poder{
 		
 	}
 
+	@Override
+	public void atacar(Algomon atacante, Algomon oponente) {
+		double danio = this.getTipoAtaque().danioPorTipo(oponente.getTipo()) * this.getPotencia();
+		oponente.getVida().reducirVida(danio);
+	}
+
 
 }

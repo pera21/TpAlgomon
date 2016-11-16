@@ -1,6 +1,6 @@
 package modelo;
 
-public class Poder {
+public abstract class Poder {
 	
 	/*public boolean ataquesAgotados();
 	public int getPotencia();
@@ -43,4 +43,6 @@ public class Poder {
 	public int getCantidad(){
 		return this.cantidadRestante;
 	}
+
+	public abstract void atacar(Algomon atacante, Algomon oponente);
 }

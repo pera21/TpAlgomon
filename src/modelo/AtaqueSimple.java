@@ -5,6 +5,12 @@ public class AtaqueSimple extends Poder {
 	public AtaqueSimple(int potenciaAtaque, int cantidadAtaque, TipoAtaque ataque) {
 		super(potenciaAtaque, cantidadAtaque, ataque);
 	}
+	
+	@Override
+	public void atacar(Algomon atacante, Algomon oponente){
+		double danio = this.getTipoAtaque().danioPorTipo(oponente.getTipo()) * this.getPotencia();
+		oponente.getVida().reducirVida(danio);
+	}
 
 /*	private int potencia;
 	private int cantidadOriginal;

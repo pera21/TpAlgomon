@@ -18,4 +18,16 @@ public class Vida {
 	public int getVida(){
 		return this.vidaRestante;
 	}
+	
+	public void aumentarVida(double vida){
+		if(this.vidaRestante + vida > this.vidaOriginal){
+			this.vidaRestante = this.vidaOriginal;
+		}else{
+			this.vidaRestante += vida;
+		}
+	}
+	
+	public void quemar(){
+		this.vidaRestante -= (this.vidaOriginal * 0.10);
+	}
 }

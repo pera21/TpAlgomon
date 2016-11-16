@@ -1,6 +1,6 @@
 package modelo;
 
-public class EstadoDormido implements Efimero {
+public class EstadoDormido implements EstadoEfimero {
 	
 	private int duracionEstado;
 	

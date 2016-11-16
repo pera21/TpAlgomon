@@ -7,8 +7,8 @@ public class Algomon implements Atacar {
 	private TipoAlgomon tipo;
 	private Vida vida;
 	//private EstadoAlgomon estado;
-	private Persistente persistente;
-	private Efimero efimero;
+	private EstadoPersistente estadoPersistente;
+	private EstadoEfimero estadoEfimero;
 	private EnumMap<NombreAtaque, Poder> poderes;
 	
 	public Algomon(NombreAlgomon nombre, TipoAlgomon tipo, Vida vida, EnumMap<NombreAtaque, Poder> poderes){
@@ -16,16 +16,20 @@ public class Algomon implements Atacar {
 		this.tipo = tipo;
 		this.vida = vida;
 		this.poderes = poderes;
-		this.persistente = new EstadoNormal();
+		this.estadoPersistente = new EstadoNormal();
+		this.estadoEfimero = null;
 		//this.estado = new EstadoNormal;
 	}
 
 	@Override
 	public void atacar(Algomon oponente, NombreAtaque ataque) {
-		Poder ataqueAlgomon = poderes.get(ataque);
-		oponente.vida.reducirVida(ataqueAlgomon.getTipoAtaque().danioPorTipo(oponente.getTipo()) * ataqueAlgomon.getPotencia());
+		Poder ataqueAlgomon = this.poderes.get(ataque);
+		//double danio = ataqueAlgomon.getTipoAtaque().danioPorTipo(oponente.getTipo()) * ataqueAlgomon.getPotencia();
+		ataqueAlgomon.atacar(this, oponente);
+		//oponente.vida.reducirVida(danio);
 		//oponente.estado.aplicarEfectoDeAtaque(ataqueAlgomon); --> para esto dividimos los ataques en: AtaqueNormal, Canto, Chupavidas y Fogonazo
-		// ataqueAlgomon.aplicarEfecto(oponente)   --> otra posibilidad
+		//ataqueAlgomon.aplicarEfecto(oponente)   --> otra posibilidad
+		estadoPersistente.aplicarEfectoEstado(this);
 		try{
 			ataqueAlgomon.reducirCantidadAtaque();
 		} catch (AtaquesAgotados exception) {
@@ -38,6 +42,10 @@ public class Algomon implements Atacar {
 		return this.vida.getVida();
 	}
 	
+	public Vida getVida(){
+		return this.vida;
+	}
+	
 	public TipoAlgomon getTipo(){
 		return this.tipo;
 	}
@@ -46,6 +54,14 @@ public class Algomon implements Atacar {
 		Poder ataqueAlgomon = this.poderes.get(ataque);
 		return ataqueAlgomon.getCantidad();
 		
+	}
+	
+	public void estadoQuemado(){
+		this.estadoPersistente = new EstadoQuemado();
+	}
+	
+	public EstadoPersistente estadoPersistente(){
+		return this.estadoPersistente;
 	}
 	/*
 	@Override
