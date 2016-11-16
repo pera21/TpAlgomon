@@ -1,14 +1,14 @@
 package modelo;
 
-public interface Poder {
+public class Poder {
 	
-	public boolean ataquesAgotados();
+	/*public boolean ataquesAgotados();
 	public int getPotencia();
 	public void reducirCantidadAtaque() throws AtaquesAgotados;
 	public TipoAtaque getTipoAtaque();
-	public int getCantidad();
+	public int getCantidad();*/
 
-/*	private int potencia;
+	private int potencia;
 	private int cantidadOriginal;
 	private int cantidadRestante;
 	private TipoAtaque ataque;
@@ -43,5 +43,4 @@ public interface Poder {
 	public int getCantidad(){
 		return this.cantidadRestante;
 	}
-*/
 }

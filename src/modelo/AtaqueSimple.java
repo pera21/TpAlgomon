@@ -1,8 +1,12 @@
 package modelo;
 
-public class AtaqueSimple implements Poder {
+public class AtaqueSimple extends Poder {
 
-	private int potencia;
+	public AtaqueSimple(int potenciaAtaque, int cantidadAtaque, TipoAtaque ataque) {
+		super(potenciaAtaque, cantidadAtaque, ataque);
+	}
+
+/*	private int potencia;
 	private int cantidadOriginal;
 	private int cantidadRestante;
 	private TipoAtaque ataque;
@@ -37,5 +41,5 @@ public class AtaqueSimple implements Poder {
 	public int getCantidad(){
 		return this.cantidadRestante;
 	}
-
+*/
 }

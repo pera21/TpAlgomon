@@ -8,13 +8,9 @@ public enum Ataque {
 		}
 	},
 	CANTO{
-		public AtaqueSimple crear(){
-			AtaqueSimple ataque = new AtaqueSimple(0, 6, TipoAtaque.NORMAL);
-			return ataque;
-			/*
-			 * AtaqueCanto canto = new AtaqueCanto(0, 6, TipoAtaque.NORMAL);
-			 * return canto;
-			 */
+		public AtaqueCanto crear(){
+			AtaqueCanto canto = new AtaqueCanto(0, 6, TipoAtaque.NORMAL);
+			return canto;
 		}
 	},
 	BURBUJA{
@@ -30,13 +26,9 @@ public enum Ataque {
 		}	
 	},
 	CHUPAVIDAS{
-		public AtaqueSimple crear(){
-			AtaqueSimple ataque = new AtaqueSimple(15, 8, TipoAtaque.PLANTA);
+		public AtaqueChupavida crear(){
+			AtaqueChupavida ataque = new AtaqueChupavida(15, 8, TipoAtaque.PLANTA);
 			return ataque;
-			/*
-			 * Chupavidas chupavidas = new Chupavidas(15, 8, TipoAtaque.PLANTA);
-			 * return chupavidas;
-			 */
 		}	
 	},
 	LATIGO_CEPA{
@@ -52,15 +44,11 @@ public enum Ataque {
 		}
 	},
 	FOGONAZO{
-		public AtaqueSimple crear(){
-			AtaqueSimple ataque = new AtaqueSimple(2, 4, TipoAtaque.FUEGO);
+		public AtaqueFogonazo crear(){
+			AtaqueFogonazo ataque = new AtaqueFogonazo(2, 4, TipoAtaque.FUEGO);
 			return ataque;
-			/*
-			 * Fogonazo fogonazo = new Fogonazo(2, 4, TipoAtaque.FUEGO);
-			 * return fogonazo;
-			 */
 		}
 	};
-	
-	public abstract AtaqueSimple crear();
+
+	public abstract Poder crear();
 }

@@ -6,7 +6,9 @@ public class Algomon implements Atacar {
 	private NombreAlgomon nombre;
 	private TipoAlgomon tipo;
 	private Vida vida;
-	private EstadoAlgomon estado;
+	//private EstadoAlgomon estado;
+	private Persistente persistente;
+	private Efimero efimero;
 	private EnumMap<NombreAtaque, Poder> poderes;
 	
 	public Algomon(NombreAlgomon nombre, TipoAlgomon tipo, Vida vida, EnumMap<NombreAtaque, Poder> poderes){
@@ -14,6 +16,7 @@ public class Algomon implements Atacar {
 		this.tipo = tipo;
 		this.vida = vida;
 		this.poderes = poderes;
+		this.persistente = new EstadoNormal();
 		//this.estado = new EstadoNormal;
 	}
 
