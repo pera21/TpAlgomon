@@ -6,9 +6,12 @@ import org.junit.Test;
 
 import modelo.Algomon;
 import modelo.FabricaEspecie;
+import modelo.EstadoDormido;
+import modelo.EstadoEfimero;
+import modelo.EstadoNormal;
+import modelo.EstadoPersistente;
 import modelo.EstadoQuemado;
 import modelo.FabricaAtaque;
-import modelo.EstadoPersistente;
 
 public class AlgomonOtrosTest {
 
@@ -60,6 +63,85 @@ public class AlgomonOtrosTest {
 		Algomon jigglypuff = FabricaEspecie.JIGGLYPUFF.crear();
 		bulbasaur1.atacar(jigglypuff,FabricaAtaque.LATIGO_CEPA);
 		assertEquals(115,jigglypuff.vida());
+	}
+	
+////////////////------------ ATAQUES BULBASAUR CON CHUPAVIDAS ------------////////////////
+	
+	@Test
+	public void testBulbasaurAtacaCharmanderConChupaVidas() {
+		Algomon bulbasaur = FabricaEspecie.BULBASAUR.crear();
+		Algomon charmander = FabricaEspecie.CHARMANDER.crear();
+		charmander.atacar(bulbasaur, FabricaAtaque.BRASAS);
+		bulbasaur.atacar(charmander, FabricaAtaque.CHUPAVIDAS);
+		assertEquals(162,charmander.vida());
+		assertEquals(110,bulbasaur.vida());
+	}
+	
+	@Test
+	public void testBulbasaurAtacaSquirtleConChupaVidas() {
+		Algomon bulbasaur = FabricaEspecie.BULBASAUR.crear();
+		Algomon squirtle = FabricaEspecie.SQUIRTLE.crear();
+		squirtle.atacar(bulbasaur, FabricaAtaque.CANION_DE_AGUA);
+		bulbasaur.atacar(squirtle, FabricaAtaque.CHUPAVIDAS);
+		assertEquals(120,squirtle.vida());
+		assertEquals(139,bulbasaur.vida());
+	}
+	
+	@Test
+	public void testBulbasaurAtacaBulbasaurConChupaVidas() {
+		Algomon bulbasaur = FabricaEspecie.BULBASAUR.crear();
+		Algomon bulbasaur2 = FabricaEspecie.BULBASAUR.crear();
+		bulbasaur2.atacar(bulbasaur, FabricaAtaque.ATAQUE_RAPIDO);
+		bulbasaur.atacar(bulbasaur2, FabricaAtaque.CHUPAVIDAS);
+		assertEquals(132,bulbasaur2.vida());
+		assertEquals(132,bulbasaur.vida());
+	}
+	
+	@Test
+	public void testBulbasaurAtacaChanseyConChupaVidas() {
+		Algomon bulbasaur = FabricaEspecie.BULBASAUR.crear();
+		Algomon chansey = FabricaEspecie.CHANSEY.crear();
+		chansey.atacar(bulbasaur, FabricaAtaque.ATAQUE_RAPIDO);
+		bulbasaur.atacar(chansey, FabricaAtaque.CHUPAVIDAS);
+		assertEquals(115,chansey.vida());
+		assertEquals(134,bulbasaur.vida());
+	}
+	
+	@Test
+	public void testBulbasaurAtacaJigglypuffConChupaVidas() {
+		Algomon bulbasaur = FabricaEspecie.BULBASAUR.crear();
+		Algomon jigglypuff = FabricaEspecie.JIGGLYPUFF.crear();
+		jigglypuff.atacar(bulbasaur, FabricaAtaque.ATAQUE_RAPIDO);
+		bulbasaur.atacar(jigglypuff, FabricaAtaque.CHUPAVIDAS);
+		assertEquals(115,jigglypuff.vida());
+		assertEquals(134,bulbasaur.vida());
+	}
+	
+	@Test
+	public void testBulbasaurAtacaRattataConChupaVidas() {
+		Algomon bulbasaur = FabricaEspecie.BULBASAUR.crear();
+		Algomon rattata = FabricaEspecie.RATTATA.crear();
+		rattata.atacar(bulbasaur, FabricaAtaque.ATAQUE_RAPIDO);
+		bulbasaur.atacar(rattata, FabricaAtaque.CHUPAVIDAS);
+		assertEquals(155,rattata.vida());
+		assertEquals(134,bulbasaur.vida());
+	}
+	
+	@Test
+	public void testBulbasaurAtacaRattataConChupaVidasYNoSeLeAgregaVidaAdicional() {
+		Algomon bulbasaur = FabricaEspecie.BULBASAUR.crear();
+		Algomon rattata = FabricaEspecie.RATTATA.crear();
+		bulbasaur.atacar(rattata, FabricaAtaque.CHUPAVIDAS);
+		assertEquals(140,bulbasaur.vida());
+	}
+	
+	@Test
+	public void testBulbasaurAtacaSquirtleConChupaVidasYNoSeLeAgregaVidaAdicional2() {
+		Algomon bulbasaur = FabricaEspecie.BULBASAUR.crear();
+		Algomon squirtle = FabricaEspecie.SQUIRTLE.crear();
+		squirtle.atacar(bulbasaur, FabricaAtaque.BURBUJA);
+		bulbasaur.atacar(squirtle, FabricaAtaque.CHUPAVIDAS);
+		assertEquals(140,bulbasaur.vida());
 	}
 	
 ////////////////------------ ATAQUES CHANSEY CON LATIGO CEPA ------------////////////////
@@ -434,9 +516,9 @@ public class AlgomonOtrosTest {
 	@Test
 	public void testJigglypuffAtacaASquirtleConAtaqueRapido() {
 		Algomon jigglypuff1 = FabricaEspecie.JIGGLYPUFF.crear();
-		Algomon squirtle = FabricaEspecie.SQUIRTLE.crear();
-		jigglypuff1.atacar(squirtle,FabricaAtaque.ATAQUE_RAPIDO);
-		assertEquals(140,squirtle.vida());
+		Algomon jigglypuff2 = FabricaEspecie.SQUIRTLE.crear();
+		jigglypuff1.atacar(jigglypuff2,FabricaAtaque.ATAQUE_RAPIDO);
+		assertEquals(140,jigglypuff2.vida());
 	}
 	
 	@Test
@@ -463,24 +545,48 @@ public class AlgomonOtrosTest {
 		assertEquals(160,jigglypuff2.vida());
 	}
 	
-	
+	//////////////////////////// ESTADOS  /////////////////////////////////////////////////////////////
 	
 	@Test
-	public void testCharmanderAtacaJigglypuffConFogonazoYQuedaQuemado(){
+	public void testJigglypuffArrancaEnEstadoNormal() {
+		Algomon jigglypuff = FabricaEspecie.JIGGLYPUFF.crear();
+		EstadoPersistente estado = jigglypuff.estadoPersistente();
+		EstadoPersistente estado2 = new EstadoNormal();
+		assertEquals(estado.getClass().getName(),estado2.getClass().getName());
+	}
+	
+	@Test
+	public void testJigglypuffEsAtacadaConFogonazoYQuedaQuemada() {
 		Algomon jigglypuff = FabricaEspecie.JIGGLYPUFF.crear();
 		Algomon charmander = FabricaEspecie.CHARMANDER.crear();
-		charmander.atacar(jigglypuff, FabricaAtaque.FOGONAZO);
+		charmander.atacar(jigglypuff,FabricaAtaque.FOGONAZO);
 		EstadoPersistente estado = jigglypuff.estadoPersistente();
 		EstadoPersistente estado2 = new EstadoQuemado();
-		assertEquals(estado.getClass().getName(), estado2.getClass().getName());
-		assertEquals(128, jigglypuff.vida());
-		jigglypuff.atacar(charmander, FabricaAtaque.ATAQUE_RAPIDO);
-		assertEquals(115, jigglypuff.vida());
-		jigglypuff.atacar(charmander, FabricaAtaque.ATAQUE_RAPIDO);
-		assertEquals(102, jigglypuff.vida());
-		charmander.atacar(jigglypuff, FabricaAtaque.ATAQUE_RAPIDO);
-		assertEquals(92, jigglypuff.vida());
-		charmander.atacar(jigglypuff, FabricaAtaque.FOGONAZO);
-		assertEquals(90, jigglypuff.vida());	
+		assertEquals(estado.getClass().getName(),estado2.getClass().getName());
+	}
+	
+	@Test
+	public void testJigglypuffEsAtacadaConCantoYQuedaDormida() {
+		Algomon jigglypuff = FabricaEspecie.JIGGLYPUFF.crear();
+		Algomon jigglypuff2 = FabricaEspecie.JIGGLYPUFF.crear();
+		jigglypuff2.atacar(jigglypuff,FabricaAtaque.CANTO);
+		EstadoEfimero estado = jigglypuff.estadoEfimero();
+		EstadoEfimero estado2 = new EstadoDormido();
+		assertEquals(estado.getClass().getName(),estado2.getClass().getName());
+	}
+	
+	@Test
+	public void testJigglypuffEsAtacadaConCantoYFogonazoYQuedaDormidaYQuemada() {
+		Algomon jigglypuff = FabricaEspecie.JIGGLYPUFF.crear();
+		Algomon jigglypuff2 = FabricaEspecie.JIGGLYPUFF.crear();
+		Algomon charmander = FabricaEspecie.CHARMANDER.crear();
+		jigglypuff2.atacar(jigglypuff,FabricaAtaque.CANTO);
+		EstadoEfimero estado = jigglypuff.estadoEfimero();
+		charmander.atacar(jigglypuff,FabricaAtaque.FOGONAZO);
+		EstadoPersistente estado2 = jigglypuff.estadoPersistente();
+		EstadoEfimero estado3 = new EstadoDormido();
+		EstadoPersistente estado4 = new EstadoQuemado();
+		assertEquals(estado.getClass().getName(),estado3.getClass().getName());
+		assertEquals(estado2.getClass().getName(),estado4.getClass().getName());
 	}
 }
