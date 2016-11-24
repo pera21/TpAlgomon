@@ -6,6 +6,7 @@ public class Algomon implements Atacar {
 	private NombreAlgomon nombre;
 	private TipoElemento tipo;
 	private Vida vida;
+	private EstadoAlgomon estadoAlgomon;
 	private EstadoPersistente estadoPersistente;
 	private EstadoEfimero estadoEfimero;
 	private EnumMap<FabricaAtaque, Poder> poderes;
@@ -15,14 +16,15 @@ public class Algomon implements Atacar {
 		this.tipo = tipo;
 		this.vida = vida;
 		this.poderes = poderes;
-		this.estadoPersistente = new EstadoNormal();
-		this.estadoEfimero = new EstadoActivo();
+		this.estadoAlgomon = new EstadoActivoAlgomon();
+		this.estadoPersistente = new EstadoNormalPersistente();
+		this.estadoEfimero = new EstadoNormalEfimero();
 	}
 
 	@Override
 	public void atacar(Algomon oponente, FabricaAtaque ataque) {
 		Poder ataqueAlgomon = this.poderes.get(ataque);
-		this.estadoEfimero.atacar(this, oponente, ataqueAlgomon);		
+		this.estadoAlgomon.atacar(this, oponente, ataqueAlgomon);		
 	}
 	
 	public int vida(){
@@ -33,8 +35,16 @@ public class Algomon implements Atacar {
 		return this.vida;
 	}
 	
+	public EnumMap<FabricaAtaque, Poder> getPoderes(){
+		return this.poderes;
+	}
+	
 	public TipoElemento getTipo(){
 		return this.tipo;
+	}
+	
+	public Poder getAtaque(FabricaAtaque ataque){
+		return this.poderes.get(ataque);
 	}
 
 	public int getAtaquesRestantes(FabricaAtaque ataque){
@@ -51,6 +61,21 @@ public class Algomon implements Atacar {
 		this.estadoEfimero = new EstadoDormido();
 	}
 	
+	public void estadoActivo() {
+		this.estadoAlgomon = new EstadoActivoAlgomon();
+		
+	}
+	
+	public void estadoNormalEfimero() {
+		this.estadoEfimero = new EstadoNormalEfimero();
+		
+	}
+	
+	public void estadoNormalPersistente() {
+		this.estadoPersistente = new EstadoNormalPersistente();
+		
+	}
+	
 	public EstadoPersistente estadoPersistente(){
 		return this.estadoPersistente;
 	}
@@ -58,10 +83,9 @@ public class Algomon implements Atacar {
 	public EstadoEfimero estadoEfimero(){
 		return this.estadoEfimero;
 	}
-
-	public void estadoActivo() {
-		this.estadoEfimero = new EstadoActivo();
-		
+	
+	public EstadoAlgomon estadoAlgomon(){
+		return this.estadoAlgomon;
 	}
 
 }

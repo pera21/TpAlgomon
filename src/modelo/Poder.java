@@ -39,4 +39,13 @@ public abstract class Poder {
 	}
 
 	public abstract void atacar(Algomon atacante, Algomon oponente);
+
+	public void modificarCantidadAtaques(int cantidadAtaquesRegenerados) {
+		if (this.cantidadRestante + cantidadAtaquesRegenerados > this.cantidadOriginal){
+			this.cantidadRestante = this.cantidadOriginal;
+		}else{
+			this.cantidadRestante += cantidadAtaquesRegenerados;
+		}
+		
+	}
 }

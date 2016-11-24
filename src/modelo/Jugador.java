@@ -6,17 +6,38 @@ public class Jugador {
 	
 	private ArrayList<Algomon> algomones;
 	private String nombreJugador;
+	private Mochila mochila;
+	private Estado estado;
 	
 	public Jugador(ArrayList<Algomon> algomones, String nombre){
-		this.algomones = new ArrayList<Algomon>();
+		this.algomones = algomones;
 		this.nombreJugador = nombre;
-	}
-	
-	public void agregarAlgomon(Algomon algomon){
-		algomones.add(algomon);
+		this.mochila = new Mochila();
+		this.estado = new EstadoActivo();
 	}
 	
 	public String mostrarNombreJugador(){
 		return this.nombreJugador;
 	}
+	
+	public void utilizarPocion(Algomon algomon){
+		this.mochila.utilizarPocion(algomon);
+	}
+	
+	public void utilizarSuperPocion(Algomon algomon){
+		this.mochila.utilizarSuperPocion(algomon);
+	}
+	
+	public void utilizarVitamina(Algomon algomon){
+		this.mochila.utilizarVitamina(algomon);
+	}
+	
+	public void utilizarRestaurador(Algomon algomon){
+		this.mochila.utilizarRestaurador(algomon);
+	}
+
+	public void setEstado(Estado estado) {
+		this.estado = estado;
+	}
+	
 }

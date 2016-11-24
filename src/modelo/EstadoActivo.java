@@ -1,23 +1,15 @@
 package modelo;
 
-public class EstadoActivo implements EstadoEfimero{
+public class EstadoActivo implements Estado{
 
 	@Override
-	public void aplicarEfecto(Algomon algomon) throws estaDormido {
-		// TODO Auto-generated method stub
-		
+	public void atacar(Algomon atacante, Algomon oponente, FabricaAtaque ataque) {
+		atacante.atacar(oponente, ataque);
 	}
 
 	@Override
-	public void atacar(Algomon atacante, Algomon oponente, Poder ataque) {
-		try{
-			ataque.atacar(atacante, oponente);
-			ataque.reducirCantidadAtaque();
-			atacante.estadoPersistente().aplicarEfectoEstado(atacante);
-		}catch (AtaquesAgotados exception) {
-			exception.getMessage();
-		}
-		
+	public void utilizarElemento(Algomon algomon, Elemento elemento) {
+		elemento.aplicarEfecto(algomon);
 	}
 
 }

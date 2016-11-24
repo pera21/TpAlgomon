@@ -12,7 +12,7 @@ public class EstadoDormido implements EstadoEfimero {
 		if(this.duracionEstado > 1){
 			this.duracionEstado -= 1;
 		}else{
-			algomon.estadoActivo();
+			algomon.estadoNormalEfimero();
 		}
 	}
 	

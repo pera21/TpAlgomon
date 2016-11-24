@@ -1,5 +1,7 @@
 package modelo;
 
-public class Elemento {
+public interface Elemento {
+	
+	public void aplicarEfecto(Algomon algomon);
 
 }
