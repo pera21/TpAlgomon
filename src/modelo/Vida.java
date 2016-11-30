@@ -9,10 +9,12 @@ public class Vida {
 		this.vidaRestante = original;
 	}
 	
-	public void reducirVida(double danio){
+	public void reducirVida(Algomon atacado, double danio){
 		this.vidaRestante -= danio;
-		if(this.vidaRestante < 0)
+		if(this.vidaRestante <= 0){
 			this.vidaRestante = 0;
+			atacado.cambiarAEstadoMuerto();
+		}		
 	}
 	
 	public int getVida(){
@@ -27,7 +29,7 @@ public class Vida {
 		}
 	}
 	
-	public void quemar(){
-		this.vidaRestante -= (this.vidaOriginal * 0.10);
+	public void quemar(Algomon algomon){
+		this.reducirVida(algomon, this.vidaOriginal * 0.10);
 	}
 }

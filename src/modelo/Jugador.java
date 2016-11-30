@@ -8,6 +8,7 @@ public class Jugador {
 	private String nombreJugador;
 	private Mochila mochila;
 	private Estado estado;
+	private Algomon algomonActivo;
 	
 	public Jugador(ArrayList<Algomon> algomones, String nombre){
 		this.algomones = algomones;
@@ -38,6 +39,21 @@ public class Jugador {
 
 	public void setEstado(Estado estado) {
 		this.estado = estado;
+	}
+	
+	public void atacar(Algomon oponente, FabricaAtaque ataque){
+		this.estado.atacar(this.algomonActivo, oponente, ataque);
+	}
+	
+	public void elegirAlgomonActivo(Algomon elegido){
+		elegido.cambiarAEstadoActivo();
+		this.algomonActivo = elegido;
+	}
+	
+	public void cambiarAlgomonActivo(Algomon elegido){
+		this.algomonActivo.cambiarAEstadoInactivo();
+		elegido.cambiarAEstadoActivo();
+		this.algomonActivo = elegido;
 	}
 	
 }

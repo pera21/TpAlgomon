@@ -16,7 +16,7 @@ public class Algomon implements Atacar {
 		this.tipo = tipo;
 		this.vida = vida;
 		this.poderes = poderes;
-		this.estadoAlgomon = new EstadoActivoAlgomon();
+		this.estadoAlgomon = new EstadoInactivoAlgomon();
 		this.estadoPersistente = new EstadoNormalPersistente();
 		this.estadoEfimero = new EstadoNormalEfimero();
 	}
@@ -86,6 +86,22 @@ public class Algomon implements Atacar {
 	
 	public EstadoAlgomon estadoAlgomon(){
 		return this.estadoAlgomon;
+	}
+	
+	public void cambiarAEstadoActivo(){
+		this.estadoAlgomon = new EstadoActivoAlgomon();
+	}
+	
+	public void cambiarAEstadoInactivo(){
+		this.estadoAlgomon = new EstadoInactivoAlgomon();
+	}
+	
+	public boolean estaMuerto(){
+		return this.vida.getVida() == 0;
+	}
+	
+	public void cambiarAEstadoMuerto(){
+		this.estadoAlgomon = new EstadoMuertoAlgomon();
 	}
 
 }
