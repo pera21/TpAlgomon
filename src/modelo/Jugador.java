@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class Jugador {
 	
 	private ArrayList<Algomon> algomones;
+	private ArrayList<Algomon> algomonesMuertos;
 	private String nombreJugador;
 	private Mochila mochila;
 	private Estado estado;
@@ -12,6 +13,7 @@ public class Jugador {
 	
 	public Jugador(ArrayList<Algomon> algomones, String nombre){
 		this.algomones = algomones;
+		this.algomonesMuertos = new ArrayList<Algomon>();
 		this.nombreJugador = nombre;
 		this.mochila = new Mochila();
 		this.estado = new EstadoActivo();
@@ -56,4 +58,19 @@ public class Jugador {
 		this.algomonActivo = elegido;
 	}
 	
+	public Algomon getAlgomonActivo(){
+		return this.algomonActivo;
+	}
+	
+	public void agregarAlgomonMuerto(Algomon algomon){
+		this.algomonesMuertos.add(algomon);
+	}
+	
+	public ArrayList<Algomon> getListaAlgomonesMuertos(){
+		return this.algomonesMuertos;
+	}
+
+	public void cambiarAlgomonMuerto(Algomon algomon) {
+		this.elegirAlgomonActivo(algomon);
+	}
 }

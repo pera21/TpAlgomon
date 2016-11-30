@@ -10,7 +10,7 @@ public class Juego {
 	private int jugadorActivo;
 	
 	public Juego(){
-		
+		this.ganador = null;
 	}
 	
 	public Algomon crearCharmander(){
@@ -45,6 +45,7 @@ public class Juego {
 	
 	public void crearJugador(String nombreJugador, ArrayList<Algomon> algomones){
 		Jugador jugador = new Jugador(algomones, nombreJugador);
+		jugador.elegirAlgomonActivo(algomones.get(0));
 		this.jugadores[this.jugadores.length] = jugador;
 	}
 	
@@ -58,6 +59,78 @@ public class Juego {
 		return (this.jugadorActivo + 1) % this.jugadores.length;
 	}
 	
+	public Jugador getJugadorActivo(){
+		return this.jugadores[this.jugadorActivo];
+	}
+	
+	public Jugador getJugadorInactivo(){
+		return this.jugadores[siguienteJugador()];
+	}
+	
+	public void atacar(FabricaAtaque ataque){
+		this.getJugadorActivo().atacar(this.getJugadorInactivo().getAlgomonActivo(), ataque);
+		terminarTurno();
+	}
+	
+	public void utilizarPocion(Algomon algomon){
+		this.getJugadorActivo().utilizarPocion(algomon);
+		terminarTurno();
+	}
+	
+	public void utilizarSuperPocion(Algomon algomon){
+		this.getJugadorActivo().utilizarSuperPocion(algomon);
+		terminarTurno();
+	}
+	
+	public void utilizarVitamina(Algomon algomon){
+		this.getJugadorActivo().utilizarVitamina(algomon);
+		terminarTurno();
+	}
+	
+	public void utilizarRestaurador(Algomon algomon){
+		this.getJugadorActivo().utilizarRestaurador(algomon);
+		terminarTurno();
+	}
+	
+	public void cambiarAlgomonActivo(Algomon algomon){
+		this.getJugadorActivo().cambiarAlgomonActivo(algomon);
+		terminarTurno();
+	}
+	
+	public void cambiarAlgomonMuerto(Algomon algomon){
+		this.getJugadorInactivo().cambiarAlgomonMuerto(algomon);
+	}
+	
+	public void terminarTurno(){
+		verificarVidaAlgomonesPeleando();
+		this.getJugadorActivo().setEstado(new EstadoInactivo());
+		this.jugadorActivo = siguienteJugador();
+		this.jugadores[this.jugadorActivo].setEstado(new EstadoActivo());
+	}
+
+	private void verificarVidaAlgomonesPeleando() {
+		for(Jugador jugador : this.jugadores){
+			if(jugador.getAlgomonActivo().estaMuerto()){
+				jugador.agregarAlgomonMuerto(jugador.getAlgomonActivo());
+			}
+		}
+	}
+	
+	public boolean hayGanador(){
+		return ganador != null;
+	}
+	
+	public Jugador getJugadorGanador(){
+		return ganador;
+	}
+	
+	public void chequearGanador(){
+		for(int i = 0; i<2 ;i++){
+			if (jugadores[i].getListaAlgomonesMuertos().size() == 3){
+				this.ganador = jugadores[(i+1)% jugadores.length];
+			}
+		}
+	}
 	
 	
 	
