@@ -1,0 +1,113 @@
+.root{
+	-fx-background-color: #383838;
+	-fx-font-size: 16pt;
+}
+
+#fondo_menus{
+	-fx-background-image: url("images/background.jpg");
+    -fx-background-repeat: no-repeat;   
+    -fx-background-size: 100% 100%;
+    -fx-background-position: center;
+}
+
+#fondo_batalla{
+	
+}
+ 
+.button{
+	-fx-background-color: transparent;
+	-fx-text-fill: #ffffff;
+	-fx-font-size: 25pt;
+}
+
+.button:hover{
+	-fx-text-fill: linear-gradient(#dc9656, #ab4642);
+	-fx-cursor: hand;
+}
+
+.GridPane{
+	-fx-button-fill: #ffffff;
+	-fx-align-content: center;
+}
+
+#creditos{
+	-fx-text-fill: #ffffff;
+	-fx-background-image: url("images/creditos.jpg");
+    -fx-background-repeat: no-repeat;   
+    -fx-background-size: 100% 100%;
+    -fx-background-position: center;
+}
+
+#nombreJugador{
+	-fx-text-fill: #ffffff;
+}
+
+#fondo_algomons{
+	-fx-background-color: rgba(0, 0, 0, 0.5); 
+    -fx-background-radius: 10;
+}
+
+#fondo_algomons:hover{
+	-fx-border-color: rgba(15,155,0,5);
+	-fx-border-radius:10;
+}
+
+#fondo_algomons > Label{
+	-fx-text-fill: #ffffff;
+}
+
+.BorderPane > HBox{
+	-fx-aling-content: right;
+}
+
+#Charmander{
+	-fx-background-image: url("images/Pokemons/charmander.gif");
+	-fx-background-repeat: no-repeat;   
+    -fx-background-size: 100% 100%;
+    -fx-background-position: center;
+}
+
+#Squirtle{
+	-fx-background-color: transparent;
+	-fx-background-image: url("images/Pokemons/squirtle.gif");
+	-fx-background-repeat: no-repeat;   
+    -fx-background-size: 100% 100%;
+    -fx-background-position: center;
+}
+
+#Bulbasaur{
+	-fx-background-color: transparent;
+	-fx-background-image: url("images/Pokemons/bulbasaur.gif");
+	-fx-background-repeat: no-repeat;   
+    -fx-background-size: 100% 100%;
+    -fx-background-position: center;
+}
+
+#Jigglypuff{
+	-fx-background-color: transparent;
+	-fx-background-image: url("images/Pokemons/jigglypuff.gif");
+	-fx-background-repeat: no-repeat;   
+    -fx-background-size: 100% 100%;
+    -fx-background-position: center;
+}
+
+#Chansey{
+	-fx-background-color: transparent;
+	-fx-background-image: url("images/Pokemons/chansey.gif");
+	-fx-background-repeat: no-repeat;   
+    -fx-background-size: 100% 100%;
+    -fx-background-position: center;
+}
+
+#Rattata{
+	-fx-background-color: transparent;
+	-fx-background-image: url("images/Pokemons/rattata.gif");
+	-fx-background-repeat: no-repeat;   
+    -fx-background-size: 100% 100%;
+    -fx-background-position: center;
+}
+
+StackPane > .Label{
+	-fx-align-content: TOP_CENTER;
+	-fx-text-alignment: TOP_CENTER;
+}
