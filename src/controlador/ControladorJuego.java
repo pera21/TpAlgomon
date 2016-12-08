@@ -1,6 +1,12 @@
 package controlador;
 
+import java.util.ArrayList;
+import java.util.Random;
+
 import modelo.Algomon;
+import modelo.EstadoActivo;
+import modelo.EstadoInactivo;
+import modelo.FabricaAtaque;
 import modelo.FabricaEspecie;
 import modelo.Juego;
 import modelo.Jugador;
@@ -13,7 +19,9 @@ public class ControladorJuego {
 		this.juego = new Juego();
 	}
 
-	public static Algomon crearCharmander(){
+	// CREACION DE ALGOMONES
+	
+	public Algomon crearCharmander(){
 		Algomon charmander = FabricaEspecie.CHARMANDER.crear();
 		return charmander;
 	}
@@ -43,8 +51,91 @@ public class ControladorJuego {
 		return jigglypuff;
 	}
 	
+	public void inicializarJugadores(){
+		this.juego.inicializarJugadores();
+	}
+	
+	// ATAQUES ALGOMONES
+	
+	public void atacarConAtaqueRapido(){
+		this.juego.atacarConAtaqueRapido();
+	}
+	
+	public void atacarConCanto(){
+		this.juego.atacarConCanto();
+	}
+	
+	public void atacarConBurbuja(){
+		this.juego.atacarConBurbuja();
+	}
+	
+	public void atacarConCanionAgua(){
+		this.juego.atacarConCanionAgua();
+	}
+	
+	public void atacarConChupavidas(){
+		this.juego.atacarConChupavidas();
+	}
+	
+	public void atacarConLatigoCepa(){
+		this.juego.atacarConLatigoCepa();
+	}
+	
+	public void atacarConBrasas(){
+		this.juego.atacarConBrasas();
+	}
+	
+	public void atacarConFogonazo(){
+		this.juego.atacarConFogonazo();
+	}
+	
+	// POCIONES Y RESTAURADORES
+	
+	public void utilizarPocion(Algomon algomon){
+		this.juego.utilizarPocion(algomon);
+	}
+	
+	public void utilizarSuperPocion(Algomon algomon){
+		this.juego.utilizarSuperPocion(algomon);
+	}
+	
+	public void utilizarVitamina(Algomon algomon){
+		this.juego.utilizarVitamina(algomon);
+	}
+	
+	public void utilizarRestaurador(Algomon algomon){
+		this.juego.utilizarRestaurador(algomon);
+	}
+	
+	// ESTADOS ALGOMON
+	
+	public void cambiarAlgomonActivo(Algomon algomon){
+		this.juego.cambiarAlgomonActivo(algomon);
+	}
+	
+	public void cambiarAlgomonMuerto(Algomon algomon){
+		this.juego.cambiarAlgomonMuerto(algomon);
+	}
+	
+	// CHEQUEO Y REVISION DE GANADOR
+	
+	public boolean hayGanador(){
+		return this.juego.hayGanador();
+	}
+	
+	public Jugador getJugadorGanador(){
+		return this.juego.getJugadorGanador();
+	}
+	
+	public void chequearGanador(){
+		this.juego.chequearGanador();
+	}
+	
 	public Jugador[] getJugadores(){
 		return this.juego.getJugadores();
 	}
 	
+	public void crearJugador(String nombreJugador, ArrayList<Algomon> algomones){
+		this.juego.crearJugador(nombreJugador, algomones);
+	}
 }
