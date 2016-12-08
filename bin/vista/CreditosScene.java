@@ -11,7 +11,7 @@ public class CreditosScene extends Scene{
 	public Button botonAtras;
 	
 	public CreditosScene(VBox bloque){
-		super(bloque, 800, 600);
+		super(bloque, 1920, 1080);
 		this.bloqueCreditos = bloque;
 		this.crearCreditos();
 		this.crearBoton();
