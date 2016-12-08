@@ -22,12 +22,14 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.text.TextAlignment;
+import javafx.stage.Stage;
 import modelo.FabricaEspecie;
 import modelo.Jugador;
 import modelo.Algomon;
 
 public class SeleccionarAlgomonScene extends Scene{
 	
+	public Stage stage;
 	public String nombreJugador1, nombreJugador2;
 	public BorderPane escena;
 	public GridPane algomones;
@@ -36,10 +38,12 @@ public class SeleccionarAlgomonScene extends Scene{
 	public ArrayList<Algomon> algomonesElegidos;
 	public int cantidadAlgomonesElegidos;
 	public ControladorJuego controlador;
+	public PeleaAlgomonesScene peleaAlgomonesScene;
 	public TextArea consola;
 
-	public SeleccionarAlgomonScene(BorderPane escenario, ControladorJuego controlador, String nombreJugador1, String nombreJugador2) {
-		super(escenario, 800, 600);
+	public SeleccionarAlgomonScene(Stage stage, BorderPane escenario, ControladorJuego controlador, String nombreJugador1, String nombreJugador2) {
+		super(escenario, 1920, 1080);
+		this.stage = stage;
 		this.escena = escenario;
 		this.nombreJugador1 = nombreJugador1;
 		this.nombreJugador2 = nombreJugador2;
@@ -75,13 +79,13 @@ public class SeleccionarAlgomonScene extends Scene{
 	}
 	
 	public void crearListaDeAlgomones(){
-		this.escena.setCenter(algomones);
-		this.crearOpcionCharmander("Charmander", "Brasas", "Fogonazo", "Ataque Rápido", 0, 0);
-		this.crearOpcionSquirtle("Squirtle", "Burbuja", "Cañón de Agua", "Ataque Rápido", 1, 0);
-		this.crearOpcionBulbasaur("Bulbasaur", "Chupavidas", "Latigo Cepa", "Ataque Rápido", 2, 0);
-		this.crearOpcionJigglypuff("Jigglypuff", "Canto", "Burbuja", "Ataque Rápido", 0, 1);
-		this.crearOpcionChansey("Chansey", "Canto", "Latigo Cepa", "Ataque Rápido", 1, 1);
-		this.crearOpcionRattata("Rattata", "Fogonazo", "Burbuja", "Ataque Rápido", 2, 1);
+		this.escena.setCenter(this.algomones);
+		this.crearOpcionCharmander("charmander", "Brasas", "Fogonazo", "Ataque Rápido", 0, 0);
+		this.crearOpcionSquirtle("squirtle", "Burbuja", "Cañón de Agua", "Ataque Rápido", 1, 0);
+		this.crearOpcionBulbasaur("bulbasaur", "Chupavidas", "Latigo Cepa", "Ataque Rápido", 2, 0);
+		this.crearOpcionJigglypuff("jigglypuff", "Canto", "Burbuja", "Ataque Rápido", 0, 1);
+		this.crearOpcionChansey("chansey", "Canto", "Latigo Cepa", "Ataque Rápido", 1, 1);
+		this.crearOpcionRattata("rattata", "Fogonazo", "Burbuja", "Ataque Rápido", 2, 1);
 	}
 	
 	public void crearOpcionCharmander(String algomon, String ataque1, String ataque2, String ataque3, int col, int fil){
@@ -198,19 +202,30 @@ public class SeleccionarAlgomonScene extends Scene{
 	}
 	
 	public void elegirAlgomones(){
-		this.consola.appendText("-> " + this.nombreJugador1 + ", es tu turno de elegir algomones.\n");
+		this.consola.appendText("-> " + this.nombreJugador1 + ", es tu turno de elegir algomones.\n-> El primero que elijas será con el primero que juegues.\n");
 		this.crearListaDeAlgomones();
 	}
 	
+	public void crearJugador(){
+		if(this.cantidadAlgomonesElegidos == 3){
+			ArrayList<Algomon> algomonesJugador1 = new ArrayList<Algomon>(this.algomonesElegidos);
+			this.controlador.crearJugador(this.nombreJugador1, algomonesJugador1);
+			this.algomonesElegidos.clear();
+		}else if(this.cantidadAlgomonesElegidos == 6){
+			ArrayList<Algomon> algomonesJugador2 = new ArrayList<Algomon>(this.algomonesElegidos);
+			this.controlador.crearJugador(this.nombreJugador2, algomonesJugador2);
+			this.algomonesElegidos.clear();
+		}
+	}
+	
+	public void cambiarAEscenaPelea(){
+		this.peleaAlgomonesScene = new PeleaAlgomonesScene(this.stage, this.controlador, new BorderPane());
+		this.peleaAlgomonesScene.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
+		this.stage.setScene(this.peleaAlgomonesScene);
+	}
+	
 	public void resetearBotonesAlgomones(){
-		if(this.cantidadAlgomonesElegidos < 3){
-			this.controlador.crearJugador(this.nombreJugador1, this.algomonesElegidos);
-			//this.algomonesElegidos.clear();
-		}/*else if(this.cantidadAlgomonesElegidos >= 3 && this.cantidadAlgomonesElegidos < 6){
-			this.controlador.crearJugador(this.nombreJugador2, this.algomonesElegidos);
-		}*/
-		this.consola.appendText("-> " + this.nombreJugador2 + ", es tu turno de elegir algomones.\n");
-		this.cantidadAlgomonesElegidos = 0;
+		this.consola.appendText("-> " + this.nombreJugador2 + ", es tu turno de elegir algomones.\n-> El primero que elijas será con el primero que juegues.\n");
 		this.charmander.setDisable(false);
 		this.squirtle.setDisable(false);
 		this.bulbasaur.setDisable(false);

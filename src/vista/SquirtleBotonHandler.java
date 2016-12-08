@@ -27,15 +27,18 @@ public class SquirtleBotonHandler implements EventHandler<ActionEvent>{
 	
 	@Override
 	public void handle(ActionEvent event){
-		if(this.escena.getCantidadAlgomonesElegidos() < 3){
+		if(this.escena.getCantidadAlgomonesElegidos() < 6){
 			this.lista.add(this.controlador.crearSquirtle());
 			this.escena.aumentarCantidadAlgomonesElegidos();
 			this.consola.appendText("-> Squirtle añadido a tu mochila!\n");
 			this.algomon.setDisable(true);
-		}else if(this.escena.getCantidadAlgomonesElegidos() >= 3 && this.escena.getCantidadAlgomonesElegidos() < 6){
-			this.escena.resetearBotonesAlgomones();
-		}else{
-			//Siguiente escena (la de batalla)
+			if(this.escena.getCantidadAlgomonesElegidos() == 3){
+				this.escena.resetearBotonesAlgomones();
+				this.escena.crearJugador();
+			}else if(this.escena.getCantidadAlgomonesElegidos() == 6){
+				this.escena.crearJugador();
+				this.escena.cambiarAEscenaPelea();
+			}
 		}
 	}
 	

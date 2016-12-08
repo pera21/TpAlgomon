@@ -58,8 +58,6 @@ public class Main extends Application{
 		//this.menuPrincipal.getBotonCreditos().setOnAction(e->stage.setScene(this.creditos));
 		//this.menuPrincipal.getBotonSalir().setOnAction(e-> stage.close());
 		
-		
-		
 		//Inicializacion Stage
 		stage.minWidthProperty().bind(this.menuPrincipal.widthProperty());
 		stage.minHeightProperty().bind(this.menuPrincipal.heightProperty());

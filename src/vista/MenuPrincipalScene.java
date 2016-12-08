@@ -15,7 +15,7 @@ public class MenuPrincipalScene extends Scene{
 	private Stage stage;
 
 	public MenuPrincipalScene(Stage stage,GridPane menu, NombreJugadoresScene menuNombreJugadores, CreditosScene creditosScene) {
-		super(menu, 800, 600);
+		super(menu, 1920, 1080);
 		this.stage = stage;
 		this.menuInicial = menu;
 		this.crearMenuInicial();

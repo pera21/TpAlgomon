@@ -23,13 +23,9 @@ public class ContinuarBotonHandler implements EventHandler<ActionEvent>{
 	
 	@Override
 	public void handle(ActionEvent event) {
-		this.seleccionarAlgomones = new SeleccionarAlgomonScene(new BorderPane(), this.controlador, this.nombreJugador1.getText(), this.nombreJugador2.getText());
+		this.seleccionarAlgomones = new SeleccionarAlgomonScene(this.stage, new BorderPane(), this.controlador, this.nombreJugador1.getText(), this.nombreJugador2.getText());
 		this.seleccionarAlgomones.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
 		this.stage.setScene(this.seleccionarAlgomones);
-		/*this.seleccionarAlgomones.setNombreJugadores(this.nombreJugador1.getText(), this.nombreJugador2.getText());
-		System.out.println(this.nombreJugador1.getText());
-		System.out.println(this.nombreJugador2.getText());
-		this.stage.setScene(this.seleccionarAlgomones);	*/
 	}
 	
 }

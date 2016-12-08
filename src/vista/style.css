@@ -11,7 +11,7 @@
 }
 
 #fondo_batalla{
-	
+
 }
  
 .button{
@@ -36,6 +36,13 @@
     -fx-background-repeat: no-repeat;   
     -fx-background-size: 100% 100%;
     -fx-background-position: center;
+}
+
+#ganadores{
+	-fx-background-image:url("images/ganador.png");
+	-fx-background-repeat: no-repeat;
+	-fx-background-size: 100% 100%;
+	-fx-background-position: center;
 }
 
 #nombreJugador{
@@ -88,14 +95,14 @@
 	-fx-aling-content: right;
 }
 
-#Charmander{
+#charmander{
 	-fx-background-image: url("images/Pokemons/charmander.gif");
 	-fx-background-repeat: no-repeat;   
     -fx-background-size: 100% 100%;
     -fx-background-position: center;
 }
 
-#Squirtle{
+#squirtle{
 	-fx-background-color: transparent;
 	-fx-background-image: url("images/Pokemons/squirtle.gif");
 	-fx-background-repeat: no-repeat;   
@@ -103,7 +110,7 @@
     -fx-background-position: center;
 }
 
-#Bulbasaur{
+#bulbasaur{
 	-fx-background-color: transparent;
 	-fx-background-image: url("images/Pokemons/bulbasaur.gif");
 	-fx-background-repeat: no-repeat;   
@@ -111,7 +118,7 @@
     -fx-background-position: center;
 }
 
-#Jigglypuff{
+#jigglypuff{
 	-fx-background-color: transparent;
 	-fx-background-image: url("images/Pokemons/jigglypuff.gif");
 	-fx-background-repeat: no-repeat;   
@@ -119,7 +126,7 @@
     -fx-background-position: center;
 }
 
-#Chansey{
+#chansey{
 	-fx-background-color: transparent;
 	-fx-background-image: url("images/Pokemons/chansey.gif");
 	-fx-background-repeat: no-repeat;   
@@ -127,7 +134,7 @@
     -fx-background-position: center;
 }
 
-#Rattata{
+#rattata{
 	-fx-background-color: transparent;
 	-fx-background-image: url("images/Pokemons/rattata.gif");
 	-fx-background-repeat: no-repeat;   
