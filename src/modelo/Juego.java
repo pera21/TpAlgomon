@@ -5,14 +5,25 @@ import java.util.Random;
 
 public class Juego {
 	
-	private Jugador [] jugadores;
+	private Jugador[] jugadores;
 	private Jugador ganador;
+	private int cantidadJugadores;
 	private int jugadorActivo;
 	
 	public Juego(){
 		this.ganador = null;
+		this.jugadores = new Jugador[2];
+		this.cantidadJugadores = 0;
 	}
 	
+	public Jugador[] getJugadores() {
+		return this.jugadores;
+	}
+
+	public Jugador getGanador() {
+		return this.ganador;
+	}
+
 	public Algomon crearCharmander(){
 		Algomon charmander = FabricaEspecie.CHARMANDER.crear();
 		return charmander;
@@ -43,10 +54,44 @@ public class Juego {
 		return jigglypuff;
 	}
 	
+	public void atacarConAtaqueRapido(){
+		this.atacar(FabricaAtaque.ATAQUE_RAPIDO);
+	}
+	
+	public void atacarConCanto(){
+		this.atacar(FabricaAtaque.CANTO);
+	}
+	
+	public void atacarConBurbuja(){
+		this.atacar(FabricaAtaque.BURBUJA);
+	}
+	
+	public void atacarConCanionAgua(){
+		this.atacar(FabricaAtaque.CANION_DE_AGUA);
+	}
+	
+	public void atacarConChupavidas(){
+		this.atacar(FabricaAtaque.CHUPAVIDAS);
+	}
+	
+	public void atacarConLatigoCepa(){
+		this.atacar(FabricaAtaque.LATIGO_CEPA);
+	}
+	
+	public void atacarConBrasas(){
+		this.atacar(FabricaAtaque.BRASAS);
+	}
+	
+	public void atacarConFogonazo(){
+		this.atacar(FabricaAtaque.FOGONAZO);
+	}
+	
+	
 	public void crearJugador(String nombreJugador, ArrayList<Algomon> algomones){
 		Jugador jugador = new Jugador(algomones, nombreJugador);
 		jugador.elegirAlgomonActivo(algomones.get(0));
-		this.jugadores[this.jugadores.length] = jugador;
+		this.jugadores[this.cantidadJugadores] = jugador;
+		this.cantidadJugadores++;
 	}
 	
 	public void inicializarJugadores(){
