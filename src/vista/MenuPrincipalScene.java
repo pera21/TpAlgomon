@@ -6,18 +6,22 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
 
 public class MenuPrincipalScene extends Scene{
 	
 	public GridPane menuInicial;
 	public Button botonJugar, botonCreditos, botonSalir;
+	private Stage stage;
 
-	public MenuPrincipalScene(GridPane menu) {
+	public MenuPrincipalScene(Stage stage,GridPane menu, NombreJugadoresScene menuNombreJugadores, CreditosScene creditosScene) {
 		super(menu, 800, 600);
+		this.stage = stage;
 		this.menuInicial = menu;
 		this.crearMenuInicial();
-		this.crearBotonesMenuInicial();
+		this.crearBotonesMenuInicial(menuNombreJugadores,creditosScene);
 		this.agregarBotonesAMenuInicial();
+		
 	}
 	
 	public void crearMenuInicial(){
@@ -28,10 +32,16 @@ public class MenuPrincipalScene extends Scene{
 		this.menuInicial.setAlignment(Pos.CENTER);
 	}
 	
-	public void crearBotonesMenuInicial(){
+	public void crearBotonesMenuInicial(NombreJugadoresScene menuNombreJugadores, CreditosScene creditosScene){
 		this.botonJugar = new Button("Jugar");
-		this.botonCreditos = new Button("Créditos");
+		this.botonCreditos = new Button("Creditos");
 		this.botonSalir = new Button("Salir");
+		BotonJugarEventHandler botonJugarHandler = new BotonJugarEventHandler(stage, menuNombreJugadores);
+	    this.botonJugar.setOnAction(botonJugarHandler);
+	    BotonSalirEventHandler botonSalirHandler = new BotonSalirEventHandler();
+	    this.botonSalir.setOnAction(botonSalirHandler);    
+	    BotonCreditosEventHandler botonCreditosHandler = new BotonCreditosEventHandler(stage,creditosScene);
+	    this.botonCreditos.setOnAction(botonCreditosHandler);
 	}
 	
 	public void agregarBotonesAMenuInicial(){
