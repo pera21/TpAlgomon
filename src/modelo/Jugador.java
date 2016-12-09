@@ -2,6 +2,12 @@ package modelo;
 
 import java.util.ArrayList;
 
+import modelo.algomon.Algomon;
+import modelo.elementos.Mochila;
+import modelo.estados.Estado;
+import modelo.estados.EstadoActivo;
+import modelo.fabricas.FabricaAtaque;
+
 public class Jugador {
 	
 	private ArrayList<Algomon> algomones;

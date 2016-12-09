@@ -3,6 +3,12 @@ package modelo;
 import java.util.ArrayList;
 import java.util.Random;
 
+import modelo.algomon.Algomon;
+import modelo.estados.EstadoActivo;
+import modelo.estados.EstadoInactivo;
+import modelo.fabricas.FabricaAtaque;
+import modelo.fabricas.FabricaEspecie;
+
 public class Juego {
 	
 	private Jugador[] jugadores;
