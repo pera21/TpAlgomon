@@ -3,11 +3,11 @@ package controlador;
 import java.util.ArrayList;
 import java.util.Random;
 
-import modelo.Algomon;
-import modelo.EstadoActivo;
-import modelo.EstadoInactivo;
-import modelo.FabricaAtaque;
-import modelo.FabricaEspecie;
+import modelo.algomon.Algomon;
+import modelo.estados.EstadoActivo;
+import modelo.estados.EstadoInactivo;
+import modelo.fabricas.FabricaAtaque;
+import modelo.fabricas.FabricaEspecie;
 import modelo.Juego;
 import modelo.Jugador;
 
