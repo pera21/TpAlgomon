@@ -2,9 +2,9 @@ package test;
 
 import static org.junit.Assert.*;
 import org.junit.Test;
-import modelo.Algomon;
-import modelo.FabricaEspecie;
-import modelo.FabricaAtaque;
+import modelo.algomon.Algomon;
+import modelo.fabricas.FabricaEspecie;
+import modelo.fabricas.FabricaAtaque;
 
 public class AlgomonTest {
 

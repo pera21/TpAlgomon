@@ -6,18 +6,18 @@ import java.util.ArrayList;
 
 import org.junit.Test;
 
-import modelo.Algomon;
-import modelo.FabricaEspecie;
+import modelo.algomon.Algomon;
+import modelo.fabricas.FabricaEspecie;
 import modelo.Jugador;
-import modelo.Mochila;
-import modelo.EstadoDormido;
-import modelo.EstadoEfimero;
-import modelo.EstadoNormalEfimero;
-import modelo.Estado;
-import modelo.EstadoNormalPersistente;
-import modelo.EstadoPersistente;
-import modelo.EstadoQuemado;
-import modelo.FabricaAtaque;
+import modelo.elementos.Mochila;
+import modelo.estados.EstadoDormido;
+import modelo.estados.EstadoEfimero;
+import modelo.estados.EstadoNormalEfimero;
+import modelo.estados.Estado;
+import modelo.estados.EstadoNormalPersistente;
+import modelo.estados.EstadoPersistente;
+import modelo.estados.EstadoQuemado;
+import modelo.fabricas.FabricaAtaque;
 
 public class AlgomonOtrosTest {
 
