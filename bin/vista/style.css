@@ -11,9 +11,12 @@
 }
 
 #fondo_batalla{
-
+	-fx-background-image: url("images/background_battle.jpg");
+    -fx-background-repeat: no-repeat;   
+    -fx-background-size: 100% 100%;
+    -fx-background-position: center;
 }
- 
+
 .button{
 	-fx-background-color: transparent;
 	-fx-text-fill: #ffffff;
@@ -38,11 +41,20 @@
     -fx-background-position: center;
 }
 
-#ganadores{
-	-fx-background-image:url("images/ganador.png");
-	-fx-background-repeat: no-repeat;
-	-fx-background-size: 100% 100%;
-	-fx-background-position: center;
+#comoJugar{
+	-fx-text-fill: #ffffff;
+	-fx-background-image: url("images/como_jugar.jpg");
+    -fx-background-repeat: no-repeat;   
+    -fx-background-size: 100% 100%;
+    -fx-background-position: center;
+}
+
+#comoJugarContinuacion{
+	-fx-text-fill: #ffffff;
+	-fx-background-image: url("images/como_jugar2.jpg");
+    -fx-background-repeat: no-repeat;   
+    -fx-background-size: 100% 100%;
+    -fx-background-position: center;
 }
 
 #nombreJugador{
@@ -67,18 +79,22 @@
 	-fx-text-fill: #ffffff;
 }
 
-.text-area {
+#consola{
+	-fx-background-color: rgba(0, 0, 0, 0.7);
+}
+
+.text-area{
 	-fx-font-family: Consolas;
     -fx-text-fill: #ffffff;
     -fx-background-color: rgba(0,0,0,0);
 }
 
-.text-area .content {
+.text-area .content{
     -fx-background-color: transparent;
     -fx-cursor: DEFAULT;
 }
 
-.text-area .scroll-pane {
+.text-area .scroll-pane{
     -fx-background-color: transparent;
 }
 
@@ -145,4 +161,68 @@
 StackPane > .Label{
 	-fx-align-content: TOP_CENTER;
 	-fx-text-alignment: TOP_CENTER;
+}
+
+#nombreAlgomonOponente{
+	-fx-text-fill: #ffffff;
+}
+
+#opcionesJugador{
+	-fx-background-color: rgba(0, 0, 0, 0.5); 
+    -fx-background-radius: 10;
+}
+
+.menu-button{
+	-fx-padding: 10 10 10 10;
+	-fx-background-color: transparent;
+}
+
+.menu-button .label{
+	-fx-text-fill: #ffffff;
+	-fx-font-size: 25pt;
+}
+
+.menu-button .label:hover{
+	-fx-text-fill: linear-gradient(#dc9656, #ab4642);
+}
+
+.menu-item .label {
+    -fx-text-fill: white;
+}
+
+.menu-item:focused {
+     -fx-background-color: transparent;
+}
+
+.menu-item:focused .label {
+    -fx-text-fill: darkgreen;
+}
+
+.context-menu {
+    -fx-skin: "com.sun.javafx.scene.control.skin.ContextMenuSkin";
+    -fx-background-color: black;
+    -fx-background-insets: 0, 1, 2;
+    -fx-background-radius: 0 6 6 6, 0 5 5 5, 0 4 4 4;
+/*    -fx-padding: 0.666667em 0.083333em 0.666667em 0.083333em;  8 1 8 1 */
+    -fx-padding: 0.333333em 0.083333em 0.666667em 0.083333em; /* 4 1 8 1 */
+}
+
+#tituloOpcionJugadorActivo{
+	-fx-text-fill: #ffffff;
+	-fx-background-color: darkgrey;
+	-fx-font-size: 20pt;
+	-fx-background-size: 100% 100%;
+	-fx-background-position: center;
+}
+
+#ganador{
+	-fx-background-image: url("images/ganador.png");
+    -fx-background-repeat: no-repeat;   
+    -fx-background-size: 100% 100%;
+    -fx-background-position: center;
+}
+
+#nombreGanador{
+	-fx-text-fill: #ffffff;
+	-fx-font-size: 40pt;
 }
