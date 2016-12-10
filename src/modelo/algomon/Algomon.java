@@ -46,7 +46,7 @@ public class Algomon implements Atacar {
 		return this.nombre.getNombre();
 	}
 	
-	public int vidaOriginal(){
+	public int getVidaOriginal(){
 		return this.vida.getVidaOriginal();
 	}
 	
@@ -99,15 +99,15 @@ public class Algomon implements Atacar {
 		
 	}
 	
-	public EstadoPersistente estadoPersistente(){
+	public EstadoPersistente getEstadoPersistente(){
 		return this.estadoPersistente;
 	}
 	
-	public EstadoEfimero estadoEfimero(){
+	public EstadoEfimero getEstadoEfimero(){
 		return this.estadoEfimero;
 	}
 	
-	public EstadoAlgomon estadoAlgomon(){
+	public EstadoAlgomon getEstadoAlgomon(){
 		return this.estadoAlgomon;
 	}
 	
