@@ -25,7 +25,7 @@ public class Jugador {
 		this.estado = new EstadoActivo();
 	}
 	
-	public String mostrarNombreJugador(){
+	public String getNombreJugador(){
 		return this.nombreJugador;
 	}
 	
@@ -72,8 +72,16 @@ public class Jugador {
 		this.algomonesMuertos.add(algomon);
 	}
 	
+	public ArrayList<Algomon> getListaAlgomones(){
+		return this.algomones;
+	}
+	
 	public ArrayList<Algomon> getListaAlgomonesMuertos(){
 		return this.algomonesMuertos;
+	}
+	
+	public Mochila getMochila(){
+		return this.mochila;
 	}
 
 	public void cambiarAlgomonMuerto(Algomon algomon) {
