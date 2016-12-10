@@ -18,11 +18,13 @@ public class Vitamina implements Elemento {
 
 	@Override
 	public void aplicarEfecto(Algomon algomon) {
-		Collection<Poder> poderes = algomon.getPoderes().values();
-		for (Poder cadaPoder : poderes){
-			cadaPoder.modificarCantidadAtaques(this.cantidadAtaquesRegenerados);
+		if(this.usos > 0){
+			Collection<Poder> poderes = algomon.getPoderes().values();
+			for (Poder cadaPoder : poderes){
+				cadaPoder.modificarCantidadAtaques(this.cantidadAtaquesRegenerados);
+			}
+			this.usos -= 1;
 		}
-		this.usos -= 1;
 	}
 	
 	public int usosRestantes(){

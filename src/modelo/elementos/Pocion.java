@@ -14,8 +14,10 @@ public class Pocion implements Elemento{
 
 	@Override
 	public void aplicarEfecto(Algomon algomon) {
-		algomon.getVida().aumentarVida(vidaRegenerada);
-		this.usos -= 1;
+		if(this.usos > 0){
+			algomon.getVida().aumentarVida(vidaRegenerada);
+			this.usos -= 1;
+		}
 	}
 	
 	public int usosRestantes(){

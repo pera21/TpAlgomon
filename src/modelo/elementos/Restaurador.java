@@ -12,9 +12,11 @@ public class Restaurador implements Elemento {
 
 	@Override
 	public void aplicarEfecto(Algomon algomon) {
-		algomon.estadoNormalEfimero();
-		algomon.estadoNormalPersistente();
-		this.usos -= 1;
+		if(this.usos > 0){
+			algomon.estadoNormalEfimero();
+			algomon.estadoNormalPersistente();
+			this.usos -= 1;
+		}
 	}
 	
 	public int usosRestantes(){
