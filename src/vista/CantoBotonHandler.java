@@ -26,8 +26,7 @@ public class CantoBotonHandler implements EventHandler<ActionEvent>{
 		this.controlador.atacarConCanto();
 		this.consola.appendText("-> " + this.algomonActivo.getNombreAlgomon() + " ataco a " + this.algomonInactivo.getNombreAlgomon() + " con canto y lo dejo dormido!.\n");
 		this.escena.resetearPaneles();
-		this.escena.establecerAlgomonesPelea();
-		this.escena.asignarAtaquesAlgomonActivo();
+		this.escena.cambiarEscenarioPorJugador();
 	}
 
 }

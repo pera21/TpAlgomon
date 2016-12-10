@@ -28,9 +28,7 @@ public class VitaminaBotonHandler implements EventHandler<ActionEvent>{
 		this.controlador.utilizarVitamina(this.algomonActivo);
 		this.consola.appendText("-> " + this.jugadorActivo.getNombreJugador() + " utilizó vitamina en " + this.algomonActivo.getNombreAlgomon() + "!.\n");
 		this.escena.resetearPaneles();
-		this.escena.establecerAlgomonesPelea();
-		this.escena.asignarAtaquesAlgomonActivo();
-		
+		this.escena.cambiarEscenarioPorJugador();
 	}
 
 }

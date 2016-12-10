@@ -26,8 +26,7 @@ public class BurbujaBotonHandler implements EventHandler<ActionEvent>{
 		this.controlador.atacarConBurbuja();
 		this.consola.appendText("-> " + this.algomonActivo.getNombreAlgomon() + " ataco a " + this.algomonInactivo.getNombreAlgomon() + " con burbujas!.\n");
 		this.escena.resetearPaneles();
-		this.escena.establecerAlgomonesPelea();
-		this.escena.asignarAtaquesAlgomonActivo();
+		this.escena.cambiarEscenarioPorJugador();
 	}
 
 }

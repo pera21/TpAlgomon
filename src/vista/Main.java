@@ -38,7 +38,6 @@ public class Main extends Application{
 		stage.setTitle("Algomón");
 		this.creditos = new CreditosScene(new VBox());
 		this.controladorJuego = new ControladorJuego();
-		//this.algomones = new SeleccionarAlgomonScene(new BorderPane(), this.controladorJuego);
 		this.menuNombreJugadores = new NombreJugadoresScene(stage, this.controladorJuego, new GridPane());
 		this.menuPrincipal = new MenuPrincipalScene(stage, new GridPane(), this.menuNombreJugadores,this.creditos);
 		
@@ -48,15 +47,10 @@ public class Main extends Application{
 		this.menuPrincipal.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
 		this.creditos.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
 		this.menuNombreJugadores.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
-		//this.algomones.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
 		
 		//Cambio de Escenas
 		this.menuNombreJugadores.getBotonAtras().setOnAction(e-> stage.setScene(this.menuPrincipal));
-		//this.menuNombreJugadores.getBotonContinuar().setOnAction(e-> stage.setScene(algomones));
 		this.creditos.getBotonAtras().setOnAction(e-> stage.setScene(this.menuPrincipal));
-		//this.menuPrincipal.getBotonJugar().setOnAction(e-> stage.setScene(this.menuNombreJugadores));
-		//this.menuPrincipal.getBotonCreditos().setOnAction(e->stage.setScene(this.creditos));
-		//this.menuPrincipal.getBotonSalir().setOnAction(e-> stage.close());
 		
 		//Inicializacion Stage
 		stage.minWidthProperty().bind(this.menuPrincipal.widthProperty());

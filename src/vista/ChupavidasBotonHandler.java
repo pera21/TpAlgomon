@@ -26,8 +26,7 @@ public class ChupavidasBotonHandler implements EventHandler<ActionEvent>{
 		this.controlador.atacarConChupavidas();
 		this.consola.appendText("-> " + this.algomonActivo.getNombreAlgomon() + " ataco a " + this.algomonInactivo.getNombreAlgomon() + " con chupavidas y se cura a si mismo!.\n");
 		this.escena.resetearPaneles();
-		this.escena.establecerAlgomonesPelea();
-		this.escena.asignarAtaquesAlgomonActivo();
+		this.escena.cambiarEscenarioPorJugador();
 	}
 
 }

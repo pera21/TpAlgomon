@@ -6,25 +6,24 @@ import javafx.event.EventHandler;
 import javafx.scene.control.TextArea;
 import modelo.algomon.Algomon;
 
-public class BrasasBotonHandler implements EventHandler<ActionEvent>{
+public class CambiarAlgomonActivoHandler implements EventHandler<ActionEvent>{
 	
 	public ControladorJuego controlador;
 	public PeleaAlgomonesScene escena;
 	public TextArea consola;
-	public Algomon algomonActivo, algomonInactivo;
+	public Algomon algomonACambiar;
 	
-	public BrasasBotonHandler(PeleaAlgomonesScene escena, ControladorJuego controlador, TextArea consola, Algomon activo, Algomon inactivo){
+	public CambiarAlgomonActivoHandler(PeleaAlgomonesScene escena, ControladorJuego controlador, TextArea consola, Algomon algomon){
 		this.controlador = controlador;
 		this.escena = escena;
 		this.consola = consola;
-		this.algomonActivo = activo;
-		this.algomonInactivo = inactivo;
+		this.algomonACambiar = algomon;
 	}
-	
+
 	@Override
 	public void handle(ActionEvent event) {
-		this.controlador.atacarConBrasas();
-		this.consola.appendText("-> " + this.algomonActivo.getNombreAlgomon() + " ataco a " + this.algomonInactivo.getNombreAlgomon() + " con brasas!.\n");
+		this.controlador.cambiarAlgomonActivo(this.algomonACambiar);
+		this.consola.appendText("-> Cambio su algomon en el campo por " + this.algomonACambiar.getNombreAlgomon() + ".\n");
 		this.escena.resetearPaneles();
 		this.escena.cambiarEscenarioPorJugador();
 	}

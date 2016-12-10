@@ -23,6 +23,7 @@ import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 import modelo.Jugador;
 import modelo.algomon.Algomon;
+import modelo.estados.EstadoInactivoAlgomon;
 import modelo.fabricas.FabricaAtaque;
 
 public class PeleaAlgomonesScene extends Scene{
@@ -49,13 +50,23 @@ public class PeleaAlgomonesScene extends Scene{
 		this.consola = new TextArea();
 		this.jugadores = this.controlador.getJugadores();
 		this.crearEscenario();
+		this.cambiarEscenarioPorJugador();
+	}
+	
+	public void cambiarEscenarioPorJugador(){
 		this.establecerAlgomonesPelea();
+		Label cambiarAlgomon = new Label("Algomones");
+		cambiarAlgomon.setId("tituloOpcionJugadorActivo");
+		this.opcionesJugador.getChildren().add(cambiarAlgomon);
+		this.cambiarAlgomonActivo();
+		Label ataquesAlgomon = new Label("Ataques Disponibles");
+		ataquesAlgomon.setId("tituloOpcionJugadorActivo");
+		this.opcionesJugador.getChildren().add(ataquesAlgomon);
 		this.asignarAtaquesAlgomonActivo();
-		
-		//Ejemplo menu button
-		/* MenuButton m = new MenuButton("Eats");
-		 m.getItems().addAll(new MenuItem("Burger"), new MenuItem("Hot Dog"));
-		 this.opcionesJugador.getChildren().add(m);*/
+		Label elementosJugador = new Label("Elementos");
+		elementosJugador.setId("tituloOpcionJugadorActivo");
+		this.opcionesJugador.getChildren().add(elementosJugador);
+		this.agregarBotonesElementos();
 	}
 	
 	public void crearEscenario(){
@@ -91,8 +102,8 @@ public class PeleaAlgomonesScene extends Scene{
 		this.consola.appendText("-> Es el turno de " + this.controlador.getJugadorActivo().getNombreJugador() + ".\n");
 		String nombreAtacante = this.algomonJugadorActivo.getNombreAlgomon();
 		String nombreOponente = this.algomonJugadorInactivo.getNombreAlgomon();
-		Label atacante = new Label(nombreAtacante + "\n" + this.algomonJugadorActivo.vida() + "/" + this.algomonJugadorActivo.vidaOriginal());
-		Label oponente = new Label(nombreOponente + "\n" + this.algomonJugadorInactivo.vida() + "/" + this.algomonJugadorInactivo.vidaOriginal());
+		Label atacante = new Label(nombreAtacante + "\n" + this.algomonJugadorActivo.vida() + "/" + this.algomonJugadorActivo.getVidaOriginal());
+		Label oponente = new Label(nombreOponente + "\n" + this.algomonJugadorInactivo.vida() + "/" + this.algomonJugadorInactivo.getVidaOriginal());
 		atacante.setTextAlignment(TextAlignment.CENTER);
 		oponente.setTextAlignment(TextAlignment.CENTER);
 		ImageView imgAtacante = new ImageView(new Image("file:src/vista/images/pokemons/" + nombreAtacante.toLowerCase() + "_b.gif"));
@@ -110,6 +121,34 @@ public class PeleaAlgomonesScene extends Scene{
 		oponente.setContentDisplay(ContentDisplay.BOTTOM);
 		this.algomones.add(atacante, 0, 8);
 		this.algomones.add(oponente, 6, 7);
+	}
+	
+	public void cambiarAlgomonActivo(){
+		this.cambiarAlgomonActivo = new MenuButton("Cambiar Algomon");
+		this.cambiarAlgomonPelea();
+		this.opcionesJugador.getChildren().add(this.cambiarAlgomonActivo);
+	}
+	
+	public void cambiarAlgomonPelea(){
+		ArrayList<Algomon> algomones = this.controlador.getJugadorActivo().getListaAlgomones();
+		MenuItem algomon1 = new MenuItem(algomones.get(0).getNombreAlgomon());
+		MenuItem algomon2 = new MenuItem(algomones.get(1).getNombreAlgomon());
+		MenuItem algomon3 = new MenuItem(algomones.get(2).getNombreAlgomon());
+		CambiarAlgomonActivoHandler cambiarAlgomon1 = new CambiarAlgomonActivoHandler(this, this.controlador, this.consola, algomones.get(0));
+		CambiarAlgomonActivoHandler cambiarAlgomon2 = new CambiarAlgomonActivoHandler(this, this.controlador, this.consola, algomones.get(1));
+		CambiarAlgomonActivoHandler cambiarAlgomon3 = new CambiarAlgomonActivoHandler(this, this.controlador, this.consola, algomones.get(2));
+		algomon1.setOnAction(cambiarAlgomon1);
+		algomon2.setOnAction(cambiarAlgomon2);
+		algomon3.setOnAction(cambiarAlgomon3);
+		if(!algomones.get(0).estaMuerto() && algomones.get(0).getEstadoAlgomon() instanceof EstadoInactivoAlgomon){
+			this.cambiarAlgomonActivo.getItems().add(algomon1);
+		}
+		if(!algomones.get(1).estaMuerto() && algomones.get(1).getEstadoAlgomon() instanceof EstadoInactivoAlgomon){
+			this.cambiarAlgomonActivo.getItems().add(algomon2);
+		}
+		if(!algomones.get(2).estaMuerto() && algomones.get(2).getEstadoAlgomon() instanceof EstadoInactivoAlgomon){
+			this.cambiarAlgomonActivo.getItems().add(algomon3);
+		}
 	}
 	
 	public void asignarAtaquesAlgomonActivo(){
@@ -205,7 +244,6 @@ public class PeleaAlgomonesScene extends Scene{
 			this.opcionesJugador.getChildren().add(this.ataque3);
 			break;			
 		}
-		this.agregarBotonesElementos();
 	}
 	
 	public void resetearPaneles(){
@@ -272,10 +310,6 @@ public class PeleaAlgomonesScene extends Scene{
 		this.vitamina.getItems().addAll(vitaminaAlgomon1, vitaminaAlgomon2, vitaminaAlgomon3);
 		
 		this.opcionesJugador.getChildren().addAll(this.pocion, this.restaurador, this.superpocion, this.vitamina);
-	}
-	
-	public void agregarAlgomonesASubMenus(){
-		
 	}
 	
 }

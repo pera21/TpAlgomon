@@ -28,9 +28,7 @@ public class RestauradorBotonHandler implements EventHandler<ActionEvent>{
 		this.controlador.utilizarRestaurador(this.algomonActivo);
 		this.consola.appendText("-> " + this.jugadorActivo.getNombreJugador() + " utilizó un restaurador en " + this.algomonActivo.getNombreAlgomon() + "!.\n");
 		this.escena.resetearPaneles();
-		this.escena.establecerAlgomonesPelea();
-		this.escena.asignarAtaquesAlgomonActivo();
-		
+		this.escena.cambiarEscenarioPorJugador();
 	}
 
 }

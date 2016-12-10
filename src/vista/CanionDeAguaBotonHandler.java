@@ -26,8 +26,7 @@ public class CanionDeAguaBotonHandler implements EventHandler<ActionEvent>{
 		this.controlador.atacarConCanionAgua();
 		this.consola.appendText("-> " + this.algomonActivo.getNombreAlgomon() + " ataco a " + this.algomonInactivo.getNombreAlgomon() + " con cañón de agua!.\n");
 		this.escena.resetearPaneles();
-		this.escena.establecerAlgomonesPelea();
-		this.escena.asignarAtaquesAlgomonActivo();
+		this.escena.cambiarEscenarioPorJugador();
 	}
 
 }

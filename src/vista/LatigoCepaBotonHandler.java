@@ -26,8 +26,7 @@ public class LatigoCepaBotonHandler implements EventHandler<ActionEvent>{
 		this.controlador.atacarConLatigoCepa();
 		this.consola.appendText("-> " + this.algomonActivo.getNombreAlgomon() + " ataco a " + this.algomonInactivo.getNombreAlgomon() + " con látigo cepa!.\n");
 		this.escena.resetearPaneles();
-		this.escena.establecerAlgomonesPelea();
-		this.escena.asignarAtaquesAlgomonActivo();
+		this.escena.cambiarEscenarioPorJugador();
 	}
 
 }

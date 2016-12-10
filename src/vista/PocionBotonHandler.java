@@ -28,9 +28,7 @@ public class PocionBotonHandler implements EventHandler<ActionEvent>{
 		this.controlador.utilizarPocion(this.algomonActivo);
 		this.consola.appendText("-> " + this.jugadorActivo.getNombreJugador() + " utilizó una poción en " + this.algomonActivo.getNombreAlgomon() + "!.\n");
 		this.escena.resetearPaneles();
-		this.escena.establecerAlgomonesPelea();
-		this.escena.asignarAtaquesAlgomonActivo();
-		
+		this.escena.cambiarEscenarioPorJugador();
 	}
 
 }

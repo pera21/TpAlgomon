@@ -26,8 +26,7 @@ public class FogonazoBotonHandler implements EventHandler<ActionEvent>{
 		this.controlador.atacarConFogonazo();
 		this.consola.appendText("-> " + this.algomonActivo.getNombreAlgomon() + " ataco a " + this.algomonInactivo.getNombreAlgomon() + " con fogonazo y lo deja quemado!.\n");
 		this.escena.resetearPaneles();
-		this.escena.establecerAlgomonesPelea();
-		this.escena.asignarAtaquesAlgomonActivo();
+		this.escena.cambiarEscenarioPorJugador();
 		// preguntar al jugador inactivo si el algomon esta vivo porque atacar termina el turno
 	}
 

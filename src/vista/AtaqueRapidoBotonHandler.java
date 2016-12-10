@@ -26,8 +26,7 @@ public class AtaqueRapidoBotonHandler implements EventHandler<ActionEvent>{
 		this.controlador.atacarConAtaqueRapido();
 		this.consola.appendText("-> " + this.algomonActivo.getNombreAlgomon() + " ataco a " + this.algomonInactivo.getNombreAlgomon() + " con ataque rápido!.\n");
 		this.escena.resetearPaneles();
-		this.escena.establecerAlgomonesPelea();
-		this.escena.asignarAtaquesAlgomonActivo();
+		this.escena.cambiarEscenarioPorJugador();
 	}
 
 }
