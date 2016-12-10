@@ -117,6 +117,16 @@ public class ControladorJuego {
 		this.juego.cambiarAlgomonMuerto(algomon);
 	}
 	
+	// JUGADORES
+	
+	public Jugador getJugadorActivo(){
+		return this.juego.getJugadorActivo();
+	}
+	
+	public Jugador getJugadorInactivo(){
+		return this.juego.getJugadorInactivo();
+	}
+	
 	// CHEQUEO Y REVISION DE GANADOR
 	
 	public boolean hayGanador(){
