@@ -117,6 +117,12 @@ public class ControladorJuego {
 		this.juego.cambiarAlgomonMuerto(algomon);
 	}
 	
+	// PARTIDA
+	
+	public void terminarTurno(){
+		this.juego.terminarTurno();
+	}
+	
 	// JUGADORES
 	
 	public Jugador getJugadorActivo(){
