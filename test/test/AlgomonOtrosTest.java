@@ -626,7 +626,7 @@ public class AlgomonOtrosTest {
 	@Test
 	public void testJigglypuffArrancaEnEstadoNormal() {
 		Algomon jigglypuff = FabricaEspecie.JIGGLYPUFF.crear();
-		EstadoPersistente estado = jigglypuff.estadoPersistente();
+		EstadoPersistente estado = jigglypuff.getEstadoPersistente();
 		EstadoPersistente estado2 = new EstadoNormalPersistente();
 		assertEquals(estado.getClass().getName(),estado2.getClass().getName());
 	}
@@ -637,7 +637,7 @@ public class AlgomonOtrosTest {
 		Algomon charmander = FabricaEspecie.CHARMANDER.crear();
 		charmander.cambiarAEstadoActivo();
 		charmander.atacar(jigglypuff,FabricaAtaque.FOGONAZO);
-		EstadoPersistente estado = jigglypuff.estadoPersistente();
+		EstadoPersistente estado = jigglypuff.getEstadoPersistente();
 		EstadoPersistente estado2 = new EstadoQuemado();
 		assertEquals(estado.getClass().getName(),estado2.getClass().getName());
 	}
@@ -648,7 +648,7 @@ public class AlgomonOtrosTest {
 		Algomon jigglypuff2 = FabricaEspecie.JIGGLYPUFF.crear();
 		jigglypuff2.cambiarAEstadoActivo();
 		jigglypuff2.atacar(jigglypuff,FabricaAtaque.CANTO);
-		EstadoEfimero estado = jigglypuff.estadoEfimero();
+		EstadoEfimero estado = jigglypuff.getEstadoEfimero();
 		EstadoEfimero estado2 = new EstadoDormido();
 		assertEquals(estado.getClass().getName(),estado2.getClass().getName());
 	}
@@ -660,10 +660,10 @@ public class AlgomonOtrosTest {
 		Algomon charmander = FabricaEspecie.CHARMANDER.crear();
 		jigglypuff2.cambiarAEstadoActivo();
 		jigglypuff2.atacar(jigglypuff,FabricaAtaque.CANTO);
-		EstadoEfimero estado = jigglypuff.estadoEfimero();
+		EstadoEfimero estado = jigglypuff.getEstadoEfimero();
 		charmander.cambiarAEstadoActivo();
 		charmander.atacar(jigglypuff,FabricaAtaque.FOGONAZO);
-		EstadoPersistente estado2 = jigglypuff.estadoPersistente();
+		EstadoPersistente estado2 = jigglypuff.getEstadoPersistente();
 		EstadoEfimero estado3 = new EstadoDormido();
 		EstadoPersistente estado4 = new EstadoQuemado();
 		assertEquals(estado.getClass().getName(),estado3.getClass().getName());
@@ -746,12 +746,12 @@ public class AlgomonOtrosTest {
 		Algomon jigglypuff2 = FabricaEspecie.JIGGLYPUFF.crear();
 		jigglypuff2.cambiarAEstadoActivo();
 		jigglypuff2.atacar(jigglypuff,FabricaAtaque.CANTO);
-		EstadoEfimero estado = jigglypuff.estadoEfimero();
+		EstadoEfimero estado = jigglypuff.getEstadoEfimero();
 		EstadoEfimero estado2 = new EstadoDormido();
 		assertEquals(estado2.getClass().getName(),estado.getClass().getName());
 		Mochila mochila1 = new Mochila();
 		mochila1.utilizarRestaurador(jigglypuff);
-		EstadoEfimero estado3 = jigglypuff.estadoEfimero();
+		EstadoEfimero estado3 = jigglypuff.getEstadoEfimero();
 		EstadoEfimero estado4 = new EstadoNormalEfimero();
 		assertEquals(estado4.getClass().getName(),estado3.getClass().getName());
 	}
@@ -762,12 +762,12 @@ public class AlgomonOtrosTest {
 		Algomon charmander = FabricaEspecie.CHARMANDER.crear();
 		charmander.cambiarAEstadoActivo();
 		charmander.atacar(jigglypuff,FabricaAtaque.FOGONAZO);
-		EstadoPersistente estado = jigglypuff.estadoPersistente();
+		EstadoPersistente estado = jigglypuff.getEstadoPersistente();
 		EstadoPersistente estado2 = new EstadoQuemado();
 		assertEquals(estado2.getClass().getName(),estado.getClass().getName());
 		Mochila mochila1 = new Mochila();
 		mochila1.utilizarRestaurador(jigglypuff);
-		EstadoPersistente estado3 = jigglypuff.estadoPersistente();
+		EstadoPersistente estado3 = jigglypuff.getEstadoPersistente();
 		EstadoPersistente estado4 = new EstadoNormalPersistente();
 		assertEquals(estado4.getClass().getName(),estado3.getClass().getName());
 	}
@@ -781,16 +781,16 @@ public class AlgomonOtrosTest {
 		charmander.cambiarAEstadoActivo();
 		jigglypuff2.atacar(jigglypuff,FabricaAtaque.CANTO);
 		charmander.atacar(jigglypuff,FabricaAtaque.FOGONAZO);
-		EstadoPersistente estado = jigglypuff.estadoPersistente();
-		EstadoEfimero estado2 = jigglypuff.estadoEfimero();
+		EstadoPersistente estado = jigglypuff.getEstadoPersistente();
+		EstadoEfimero estado2 = jigglypuff.getEstadoEfimero();
 		EstadoPersistente estado3 = new EstadoQuemado();
 		EstadoEfimero estado4 = new EstadoDormido();
 		assertEquals(estado2.getClass().getName(),estado4.getClass().getName());
 		assertEquals(estado.getClass().getName(),estado3.getClass().getName());
 		Mochila mochila1 = new Mochila();
 		mochila1.utilizarRestaurador(jigglypuff);
-		EstadoPersistente estado5 = jigglypuff.estadoPersistente();
-		EstadoEfimero estado6 = jigglypuff.estadoEfimero();
+		EstadoPersistente estado5 = jigglypuff.getEstadoPersistente();
+		EstadoEfimero estado6 = jigglypuff.getEstadoEfimero();
 		EstadoPersistente estado7 = new EstadoNormalPersistente();
 		EstadoEfimero estado8 = new EstadoNormalEfimero();
 		assertEquals(estado8.getClass().getName(),estado6.getClass().getName());

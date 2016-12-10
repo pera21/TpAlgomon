@@ -350,7 +350,7 @@ public class AlgomonTest {
 	}
 	
 	@Test
-	public void testCharmanderAtacaChanseyConFogonazoYEsteRecibe13DeDañoPorTurno() {
+	public void testCharmanderAtacaChanseyConFogonazoYEsteRecibe13DeDanioPorTurno() {
 		Algomon charmander = FabricaEspecie.CHARMANDER.crear();
 		Algomon chansey = FabricaEspecie.CHANSEY.crear();
 		charmander.cambiarAEstadoActivo();
@@ -365,7 +365,7 @@ public class AlgomonTest {
 	}
 	
 	@Test
-	public void testRattataAtacaChanseyConFogonazoYEsteRecibe13DeDañoPorTurno() {
+	public void testRattataAtacaChanseyConFogonazoYEsteRecibe13DeDanioPorTurno() {
 		Algomon rattata = FabricaEspecie.RATTATA.crear();
 		Algomon chansey = FabricaEspecie.CHANSEY.crear();
 		rattata.cambiarAEstadoActivo();
