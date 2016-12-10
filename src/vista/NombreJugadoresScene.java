@@ -20,7 +20,7 @@ public class NombreJugadoresScene extends Scene {
 
 	
 	public NombreJugadoresScene(Stage stage, ControladorJuego controlador, GridPane menu) {
-		super(menu, 1920, 1080);
+		super(menu, 1024, 768);
 		this.menuJugadores = menu;
 		this.controlador = controlador;
 		this.crearMenuNombreJugadores();;

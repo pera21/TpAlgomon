@@ -23,9 +23,9 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
-import modelo.FabricaEspecie;
+import modelo.fabricas.FabricaEspecie;
 import modelo.Jugador;
-import modelo.Algomon;
+import modelo.algomon.Algomon;
 
 public class SeleccionarAlgomonScene extends Scene{
 	
@@ -42,7 +42,7 @@ public class SeleccionarAlgomonScene extends Scene{
 	public TextArea consola;
 
 	public SeleccionarAlgomonScene(Stage stage, BorderPane escenario, ControladorJuego controlador, String nombreJugador1, String nombreJugador2) {
-		super(escenario, 1920, 1080);
+		super(escenario, 1024, 768);
 		this.stage = stage;
 		this.escena = escenario;
 		this.nombreJugador1 = nombreJugador1;
@@ -60,7 +60,6 @@ public class SeleccionarAlgomonScene extends Scene{
 		HBox nhbox = new HBox();
 		this.consola = new TextArea();
 		this.consola.setEditable(false);
-		this.consola.setId("consola");
 		nhbox.getChildren().add(this.consola);
 		this.escena.setBottom(nhbox);
 	}
@@ -91,7 +90,7 @@ public class SeleccionarAlgomonScene extends Scene{
 	public void crearOpcionCharmander(String algomon, String ataque1, String ataque2, String ataque3, int col, int fil){
 		Label nombreAlgomon = new Label(algomon);
 		nombreAlgomon.setTextAlignment(TextAlignment.CENTER);
-		ImageView imgAlgomon = new ImageView(new Image("file:src/vista/images/Pokemons/"+algomon+".gif"));
+		ImageView imgAlgomon = new ImageView(new Image("file:src/vista/images/pokemons/"+algomon+".gif"));
 		nombreAlgomon.setGraphic(imgAlgomon);
 		nombreAlgomon.setGraphicTextGap(50);
 		nombreAlgomon.setContentDisplay(ContentDisplay.BOTTOM);
@@ -107,7 +106,7 @@ public class SeleccionarAlgomonScene extends Scene{
 	public void crearOpcionSquirtle(String algomon, String ataque1, String ataque2, String ataque3, int col, int fil){
 		Label nombreAlgomon = new Label(algomon);
 		nombreAlgomon.setTextAlignment(TextAlignment.CENTER);
-		ImageView imgAlgomon = new ImageView(new Image("file:src/vista/images/Pokemons/"+algomon+".gif"));
+		ImageView imgAlgomon = new ImageView(new Image("file:src/vista/images/pokemons/"+algomon+".gif"));
 		nombreAlgomon.setGraphic(imgAlgomon);
 		nombreAlgomon.setGraphicTextGap(50);
 		nombreAlgomon.setContentDisplay(ContentDisplay.BOTTOM);
@@ -123,7 +122,7 @@ public class SeleccionarAlgomonScene extends Scene{
 	public void crearOpcionBulbasaur(String algomon, String ataque1, String ataque2, String ataque3, int col, int fil){
 		Label nombreAlgomon = new Label(algomon);
 		nombreAlgomon.setTextAlignment(TextAlignment.CENTER);
-		ImageView imgAlgomon = new ImageView(new Image("file:src/vista/images/Pokemons/"+algomon+".gif"));
+		ImageView imgAlgomon = new ImageView(new Image("file:src/vista/images/pokemons/"+algomon+".gif"));
 		nombreAlgomon.setGraphic(imgAlgomon);
 		nombreAlgomon.setGraphicTextGap(50);
 		nombreAlgomon.setContentDisplay(ContentDisplay.BOTTOM);
@@ -139,7 +138,7 @@ public class SeleccionarAlgomonScene extends Scene{
 	public void crearOpcionJigglypuff(String algomon, String ataque1, String ataque2, String ataque3, int col, int fil){
 		Label nombreAlgomon = new Label(algomon);
 		nombreAlgomon.setTextAlignment(TextAlignment.CENTER);
-		ImageView imgAlgomon = new ImageView(new Image("file:src/vista/images/Pokemons/"+algomon+".gif"));
+		ImageView imgAlgomon = new ImageView(new Image("file:src/vista/images/pokemons/"+algomon+".gif"));
 		nombreAlgomon.setGraphic(imgAlgomon);
 		nombreAlgomon.setGraphicTextGap(50);
 		nombreAlgomon.setContentDisplay(ContentDisplay.BOTTOM);
@@ -155,7 +154,7 @@ public class SeleccionarAlgomonScene extends Scene{
 	public void crearOpcionChansey(String algomon, String ataque1, String ataque2, String ataque3, int col, int fil){
 		Label nombreAlgomon = new Label(algomon);
 		nombreAlgomon.setTextAlignment(TextAlignment.CENTER);
-		ImageView imgAlgomon = new ImageView(new Image("file:src/vista/images/Pokemons/"+algomon+".gif"));
+		ImageView imgAlgomon = new ImageView(new Image("file:src/vista/images/pokemons/"+algomon+".gif"));
 		nombreAlgomon.setGraphic(imgAlgomon);
 		nombreAlgomon.setGraphicTextGap(50);
 		nombreAlgomon.setContentDisplay(ContentDisplay.BOTTOM);
@@ -171,7 +170,7 @@ public class SeleccionarAlgomonScene extends Scene{
 	public void crearOpcionRattata(String algomon, String ataque1, String ataque2, String ataque3, int col, int fil){
 		Label nombreAlgomon = new Label(algomon);
 		nombreAlgomon.setTextAlignment(TextAlignment.CENTER);
-		ImageView imgAlgomon = new ImageView(new Image("file:src/vista/images/Pokemons/"+algomon+".gif"));
+		ImageView imgAlgomon = new ImageView(new Image("file:src/vista/images/pokemons/"+algomon+".gif"));
 		nombreAlgomon.setGraphic(imgAlgomon);
 		nombreAlgomon.setGraphicTextGap(50);
 		nombreAlgomon.setContentDisplay(ContentDisplay.BOTTOM);
@@ -219,6 +218,7 @@ public class SeleccionarAlgomonScene extends Scene{
 	}
 	
 	public void cambiarAEscenaPelea(){
+		this.controlador.inicializarJugadores();
 		this.peleaAlgomonesScene = new PeleaAlgomonesScene(this.stage, this.controlador, new BorderPane());
 		this.peleaAlgomonesScene.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
 		this.stage.setScene(this.peleaAlgomonesScene);

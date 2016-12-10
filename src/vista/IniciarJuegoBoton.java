@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
-import modelo.Algomon;
+import modelo.algomon.Algomon;
 import controlador.ControladorJuego;
 
 public class IniciarJuegoBoton implements EventHandler<ActionEvent>{
