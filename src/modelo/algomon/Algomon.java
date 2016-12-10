@@ -42,6 +42,14 @@ public class Algomon implements Atacar {
 		this.estadoAlgomon.atacar(this, oponente, ataqueAlgomon);		
 	}
 	
+	public String getNombreAlgomon(){
+		return this.nombre.getNombre();
+	}
+	
+	public int vidaOriginal(){
+		return this.vida.getVidaOriginal();
+	}
+	
 	public int vida(){
 		return this.vida.getVida();
 	}

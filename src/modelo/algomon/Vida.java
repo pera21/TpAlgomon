@@ -17,6 +17,10 @@ public class Vida {
 		}		
 	}
 	
+	public int getVidaOriginal(){
+		return this.vidaOriginal;
+	}
+	
 	public int getVida(){
 		return this.vidaRestante;
 	}
