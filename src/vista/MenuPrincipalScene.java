@@ -11,7 +11,7 @@ import javafx.stage.Stage;
 public class MenuPrincipalScene extends Scene{
 	
 	public GridPane menuInicial;
-	public Button botonJugar, botonCreditos, botonSalir;
+	public Button botonJugar, botonComoJugar, botonCreditos, botonSalir;
 	private Stage stage;
 
 	public MenuPrincipalScene(Stage stage,GridPane menu, NombreJugadoresScene menuNombreJugadores, CreditosScene creditosScene) {
@@ -19,7 +19,7 @@ public class MenuPrincipalScene extends Scene{
 		this.stage = stage;
 		this.menuInicial = menu;
 		this.crearMenuInicial();
-		this.crearBotonesMenuInicial(menuNombreJugadores,creditosScene);
+		this.crearBotonesMenuInicial(menuNombreJugadores, creditosScene);
 		this.agregarBotonesAMenuInicial();
 		
 	}
@@ -34,20 +34,25 @@ public class MenuPrincipalScene extends Scene{
 	
 	public void crearBotonesMenuInicial(NombreJugadoresScene menuNombreJugadores, CreditosScene creditosScene){
 		this.botonJugar = new Button("Jugar");
+		this.botonComoJugar = new Button("Como Jugar");
 		this.botonCreditos = new Button("Creditos");
 		this.botonSalir = new Button("Salir");
-		BotonJugarEventHandler botonJugarHandler = new BotonJugarEventHandler(stage, menuNombreJugadores);
+		JugarBotonHandler botonJugarHandler = new JugarBotonHandler(this.stage, menuNombreJugadores);
 	    this.botonJugar.setOnAction(botonJugarHandler);
-	    BotonSalirEventHandler botonSalirHandler = new BotonSalirEventHandler();
-	    this.botonSalir.setOnAction(botonSalirHandler);    
-	    BotonCreditosEventHandler botonCreditosHandler = new BotonCreditosEventHandler(stage,creditosScene);
+	    ComoJugarBotonHandler botonComoJugarHandler = new ComoJugarBotonHandler(this.stage, this);
+	    this.botonComoJugar.setOnAction(botonComoJugarHandler);
+	    CreditosBotonHandler botonCreditosHandler = new CreditosBotonHandler(this.stage,creditosScene);
 	    this.botonCreditos.setOnAction(botonCreditosHandler);
+	    SalirBotonHandler botonSalirHandler = new SalirBotonHandler();
+	    this.botonSalir.setOnAction(botonSalirHandler);    
+	    
 	}
 	
 	public void agregarBotonesAMenuInicial(){
-		this.menuInicial.add(botonJugar, 0, 0);
-		this.menuInicial.add(botonCreditos, 0, 1);
-		this.menuInicial.add(botonSalir, 0, 2);
+		this.menuInicial.add(this.botonJugar, 0, 0);
+		this.menuInicial.add(this.botonComoJugar, 0, 1);
+		this.menuInicial.add(this.botonCreditos, 0, 2);
+		this.menuInicial.add(this.botonSalir, 0, 3);
 	}
 	
 	public Button getBotonJugar(){

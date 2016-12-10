@@ -41,7 +41,7 @@ public class PeleaAlgomonesScene extends Scene{
 	public Button ataque1, ataque2, ataque3;
 	public MenuButton pocion, restaurador, superpocion, vitamina;
 	public MenuButton cambiarAlgomonActivo;
-
+	
 	public PeleaAlgomonesScene(Stage stage, ControladorJuego controlador, BorderPane escena) {
 		super(escena, 1024, 768);
 		this.stage = stage;
@@ -312,4 +312,19 @@ public class PeleaAlgomonesScene extends Scene{
 		this.opcionesJugador.getChildren().addAll(this.pocion, this.restaurador, this.superpocion, this.vitamina);
 	}
 	
+	public void desactivarOpcionesMenu(){
+		this.ataque1.setDisable(true);
+		this.ataque2.setDisable(true);
+		this.ataque3.setDisable(true);
+		this.pocion.setDisable(true);
+		this.restaurador.setDisable(true);
+		this.superpocion.setDisable(true);
+		this.vitamina.setDisable(true);
+	}
+	
+	public void cambiarAEscenaGanador(String ganador){
+		GanadorScene gan = new GanadorScene(new BorderPane(), ganador);
+		gan.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
+		this.stage.setScene(gan);
+	}
 }

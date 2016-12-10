@@ -25,8 +25,30 @@ public class CanionDeAguaBotonHandler implements EventHandler<ActionEvent>{
 	public void handle(ActionEvent event) {
 		this.controlador.atacarConCanionAgua();
 		this.consola.appendText("-> " + this.algomonActivo.getNombreAlgomon() + " ataco a " + this.algomonInactivo.getNombreAlgomon() + " con cañón de agua!.\n");
-		this.escena.resetearPaneles();
-		this.escena.cambiarEscenarioPorJugador();
+		if(this.controlador.getJugadorInactivo().getAlgomonActivo().estaMuerto()){
+			if(this.controlador.getJugadorInactivo().getListaAlgomonesMuertos().size() == 3){
+				this.escena.cambiarAEscenaGanador(this.controlador.getJugadorActivo().getNombreJugador());
+				return;
+			}else{
+				this.controlador.terminarTurno();
+				this.consola.appendText("-> El algomon " + this.algomonActivo.getNombreAlgomon() + " ha muerto.\n");
+				this.escena.resetearPaneles();
+				this.escena.cambiarEscenarioPorJugador();
+				this.escena.desactivarOpcionesMenu();
+			}
+		}else if(this.controlador.getJugadorActivo().getAlgomonActivo().estaMuerto()){
+			if(this.controlador.getJugadorActivo().getListaAlgomonesMuertos().size() == 3){
+				this.escena.cambiarAEscenaGanador(this.controlador.getJugadorInactivo().getNombreJugador());
+			}else{
+				this.escena.resetearPaneles();
+				this.consola.appendText("-> El algomon " + this.algomonInactivo.getNombreAlgomon() + " ha muerto.\n");
+				this.escena.cambiarEscenarioPorJugador();
+				this.escena.desactivarOpcionesMenu();
+			}
+		}else{
+			this.escena.resetearPaneles();
+			this.escena.cambiarEscenarioPorJugador();
+		}
 	}
 
 }

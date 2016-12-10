@@ -41,11 +41,20 @@
     -fx-background-position: center;
 }
 
-#ganadores{
-	-fx-background-image:url("images/ganador.png");
-	-fx-background-repeat: no-repeat;
-	-fx-background-size: 100% 100%;
-	-fx-background-position: center;
+#comoJugar{
+	-fx-text-fill: #ffffff;
+	-fx-background-image: url("images/como_jugar.jpg");
+    -fx-background-repeat: no-repeat;   
+    -fx-background-size: 100% 100%;
+    -fx-background-position: center;
+}
+
+#comoJugarContinuacion{
+	-fx-text-fill: #ffffff;
+	-fx-background-image: url("images/como_jugar2.jpg");
+    -fx-background-repeat: no-repeat;   
+    -fx-background-size: 100% 100%;
+    -fx-background-position: center;
 }
 
 #nombreJugador{
@@ -204,4 +213,16 @@ StackPane > .Label{
 	-fx-font-size: 20pt;
 	-fx-background-size: 100% 100%;
 	-fx-background-position: center;
+}
+
+#ganador{
+	-fx-background-image: url("images/ganador.png");
+    -fx-background-repeat: no-repeat;   
+    -fx-background-size: 100% 100%;
+    -fx-background-position: center;
+}
+
+#nombreGanador{
+	-fx-text-fill: #ffffff;
+	-fx-font-size: 40pt;
 }

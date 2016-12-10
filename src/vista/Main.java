@@ -51,7 +51,7 @@ public class Main extends Application{
 		//Cambio de Escenas
 		this.menuNombreJugadores.getBotonAtras().setOnAction(e-> stage.setScene(this.menuPrincipal));
 		this.creditos.getBotonAtras().setOnAction(e-> stage.setScene(this.menuPrincipal));
-		
+
 		//Inicializacion Stage
 		stage.minWidthProperty().bind(this.menuPrincipal.widthProperty());
 		stage.minHeightProperty().bind(this.menuPrincipal.heightProperty());
