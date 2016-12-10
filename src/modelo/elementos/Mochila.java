@@ -33,5 +33,21 @@ public class Mochila {
 	public void utilizarRestaurador(Algomon algomon) {
 		this.restaurador.aplicarEfecto(algomon);
 	}
+	
+	public int getCantidadRestantePocion(){
+		return this.pocion.usosRestantes();
+	}
+	
+	public int getCantidadRestanteSuperpocion(){
+		return this.superPocion.usosRestantes();
+	}
+	
+	public int getCantidadRestanteVitamina(){
+		return this.vitamina.usosRestantes();
+	}
+	
+	public int getCantidadRestanteRestaurador(){
+		return this.restaurador.usosRestantes();
+	}
 
 }
